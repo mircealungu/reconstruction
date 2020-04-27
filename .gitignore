@@ -1,1 +1,8 @@
 *checkpoint*
+
+*.idea*
+
+*.pyc*
+*venv*
+*egg*
+*Untitled*
