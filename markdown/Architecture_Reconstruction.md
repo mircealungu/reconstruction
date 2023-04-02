@@ -52,7 +52,7 @@ Discussions:
 
 e.g. possible scenario of dev not being aware of architecture => architectural anti-pattern.
 
- ![](images/adjacent_connector_.png)
+ ![](adjacent_connector_.png)
 
 ## What to Do? 
 
@@ -95,7 +95,7 @@ e.g. possible scenario of dev not being aware of architecture => architectural a
 
 ## Symphony Stages: Design (blue) & Execution (yellow)
 
-![sympony](images/symphony.png)
+![sympony](symphony.png)
 
 ## Symphony: Design
 
@@ -134,7 +134,7 @@ Information interpretation
 
     Present = information interpretation
 
-![](images/eap2.png)
+![](eap2.png)
 
 # Your Own Architectural Expertise
 

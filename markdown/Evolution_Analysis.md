@@ -1,6 +1,6 @@
 # Software Evolution Analysis
 
-![](images/heraclitus.png)
+![](heraclitus.png)
 
 > Everything changes, and nothing stands still, 
 > 

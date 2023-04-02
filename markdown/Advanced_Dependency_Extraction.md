@@ -21,7 +21,7 @@ Challenge:
 
 ## Chomsky Hierarchy of Languages  
 
-![](images/languages.png)
+![](languages.png)
 
 - Regexes are the weakest of the formal grammars
 - You can prove that they can't parse real programming languages
@@ -53,7 +53,7 @@ The parse tree is a
 - retains all of the information of the input
 - the empty boxes represent whitespace (i.e. EOL)
 
-![](images/parse__tree.png)
+![](parse__tree.png)
 
 
 
@@ -65,7 +65,7 @@ Contains nodes that correspond to constructs in the language
 
 Enables inspection and modification of the program (or program transformation)
 
-![](images/ast.png)
+![](ast.png)
 
 ## In Python
 
