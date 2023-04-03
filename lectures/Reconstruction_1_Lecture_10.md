@@ -61,10 +61,6 @@ Have you seen architectural documentation for every system?
 
 ## Why is Architectural Documentation Obsolete?
 
-discussion...
-
---
-
  - it's hard to maintain
 
  - link (traceability ) between architecture and code is often not obvious
