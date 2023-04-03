@@ -139,7 +139,7 @@ From, Demeyer et al., [Object Oriented Reengineering Patterns](http://scg.unibe.
 
 # A Process for Reconstruction: Symphony
 
-- [Symphony: View-Driven Software Architecture Reconstruction](deursen-symphony.pdf)
+- [Symphony: View-Driven Software Architecture Reconstruction](https://ipa.win.tue.nl/archive/springdays2005/Deursen1.pdf)
 
 - Recovers views and viewpoints as in IEE 1471 / 3+1
 - Distinguishes between three kinds of views:
