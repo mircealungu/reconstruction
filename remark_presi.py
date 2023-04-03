@@ -25,9 +25,8 @@ DEFAULT_CSS = """   body { font-family: 'Droid Serif'; }
     }
 
     a {
-      color: grey;
       text-decoration: none;
-      font-size: 75%;
+      font-size: 100%;
     }
 
     tiny {
@@ -39,7 +38,7 @@ DEFAULT_CSS = """   body { font-family: 'Droid Serif'; }
       font-size: 10pt;
       margin-bottom: -11.6px;
       margin-right: 10px;
-      color: #FFFFFF; /* white */
+      color: #e0e0e0; /* white */
       opacity: 1; /* default: 0.5 */
     }
 """
