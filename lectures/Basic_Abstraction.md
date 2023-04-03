@@ -34,7 +34,7 @@ An interactive tool would help a bit
 # Knowledge Inference / Abstraction
 
 
-![sympony](symphony.png)
+![sympony](lectures/images/symphony.png)
 
 >  The reconstructor creates the target view by **condensing the low-level details of the source view** and **abstracting them into architectural information**. 
 >

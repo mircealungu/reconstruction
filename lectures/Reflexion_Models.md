@@ -16,17 +16,17 @@ The VMS of Linux
 
 ### 1. Modules and dependencies as drawn by the maintainers
 
-![](reflexion_model_hypothesis.png)
+![](lectures/images/reflexion_model_hypothesis.png)
 
 
 ### 2. Mapping the modules (by the maintainers)
 
-![](reflexion_model_mappings.png)
+![](lectures/images/reflexion_model_mappings.png)
 
 
 ### 3. Comparing the As-Is vs. As-Envisioned Views
 
-![](reflexion_model_comparison.png)
+![](lectures/images/reflexion_model_comparison.png)
 
 
 ## Source Model Computation
