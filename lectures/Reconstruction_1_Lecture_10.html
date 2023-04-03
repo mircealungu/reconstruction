@@ -46,7 +46,7 @@ class: center, middle
 
 IT University of Copenhagen
 
-#### Software Architecture 
+#### Software Architecture Course
 
 ###  Session #10
 
@@ -62,15 +62,15 @@ Assoc. Prof. Mircea Lungu
 # Meta
 
 This and following three lectures
- - Are material that you don't find in the textbook
- - Influenced by past student feedback
+ - Are material that you don't find in the textbook (*there will still be readings*)
+ - Is going to give you the chance to do a bit of coding for program analysis
  - Have inspired several of your colleagues to choose thesis projects
  
  
 Feedback
 - [Anonymous feedback form](https://forms.gle/ADWfDZdKfPwdFG1D6)
 - Email: mlun@itu.dk
-- PR on the GitHub version of the slides if you see bugs
+- PR on the  [.md version of the slides on GH](https://github.com/mircealungu/itu-architecture-reconstruction/blob/master/lectures/Reconstruction_1_Lecture_10.md) if you see bugs
 
 ---
 
@@ -110,48 +110,61 @@ discussion...
 --
 
  - it's hard to maintain
+
  - link (traceability ) between architecture and code is often not obvious
+
  - no perceived value for the customer
- - because developers 
-	 - make changes that are not aligned (**architectural drift**)
-	 - make decisions that don't respect earlier decisions (**architectural erosion**)
 
----
+ - because developers make decisions and changes 
+	 - that are not aligned with the original vision => **[architectural drift](https://youtu.be/hExflmcBSc4?t=14)**
+	 - that go against prescriptive architecture => **[architectural erosion](https://youtu.be/hExflmcBSc4?t=70)**
 
-# How to keep Architectural Documentation up to Date?
-
-Enforcing architectural constraints 
-- special DSL for architecture constraints definition
-- implemented as Unit Tests  
-
-Generating architectural diagrams from code
-- as opposed to drawing them in Powerpoint
-- we'll see techniques for doing this
-- interesting research direction & thesis topic
 
 ---
 
 
-# What Happens When Developers Are Not Aware of Architecture?
+# Architecture Erosion Example
 
-e.g. possible scenario of dev not being aware of architecture => architectural anti-pattern.
+E.g. architectural anti-pattern
+
+What could be the problem here?
 
 <img src='images/adjacent_connector_.png' />
 
 
 ---
 
+# How to Keep Architectural Documentation up to Date?
+
+1 / **Enforcing architectural constraints** 
+- special DSLs and tools for architecture constraints definition (e.g. [Dictō](https://scg.unibe.ch/archive/papers/Cara14b-Dicto.pdf))
+- some are implemented as Unit Tests  (e.g. [ArchUnit](https://www.archunit.org/use-cases))
+
+--
+
+2 / **Generating architectural diagrams from code**
+- as opposed to drawing them in Powerpoint
+- we'll see techniques for doing this
+- interesting research direction & thesis topic
+
+--
+
+3 / **Reconstructing the Architecture**
+- and ideally follow up with one of the previous two
+
+---
+
 # Architecture Reconstruction (AR)
 
 
-A reverse engineering approach that aims at reconstructing viable architectural views of
+a.k.a: *architecture recovery* (the two are used interchangeably)
+
+**Def.**  A reverse engineering approach that aims at reconstructing viable architectural views of
 a software application [1]
 
-- an approach = an activity
-- reconstructing? why?
 - reverse engineering?
 
-a.k.a: *architecture recovery*
+
 
  [1] Ducasse & Pollet, [Software Architecture Reconstruction:
 a Process-Oriented Taxonomy](https://rmod.inria.fr/archives/papers/Duca09c-TSE-SOAArchitectureExtraction.pdf)
@@ -160,14 +173,19 @@ a Process-Oriented Taxonomy](https://rmod.inria.fr/archives/papers/Duca09c-TSE-S
 
 # Reverse Engineering
 
-“**Reverse Engineering** is the process of analyzing a subject system to identify the system’s components and their interrela- tionships and create representations of the system in another form or at a higher level of abstraction.” (Demeyer et al., [Object Oriented Reengineering Patterns](http://scg.unibe.ch/download/oorp/OORP.pdf), Chapter 1.2)
+**Def.** the process of analyzing a subject system to identify the system’s components and their interrela- tionships and create representations of the system in another form or at a higher level of abstraction. (Demeyer et al., [Object Oriented Reengineering Patterns](http://scg.unibe.ch/download/oorp/OORP.pdf), Chapter 1.2)
 
 Key takeaways: 
-- identify components & relationships
+- idenitfy
+	- components 
+	- relationships
 - higher level of abstraction
 
-Relation with architecture recovery:
-- similar activities
+Relation with architecture recovery? 
+
+???
+
+Similar activities
 
 ---
 
@@ -180,8 +198,11 @@ Relation with architecture recovery:
 “ ... is the **examination and alteration** of a subject system to reconstitute it in a new form” (Demeyer et al., [Object Oriented Reengineering Patterns](http://scg.unibe.ch/download/oorp/OORP.pdf), Chapter 1.2)
 
 
-Relation with AR:
-- AR could be a possible first step in reengineering
+Relation with AR? 
+
+???
+
+AR could be a possible first step in reengineering
 
 
 
@@ -191,20 +212,20 @@ Relation with AR:
 
 # A Process for Reconstruction: Symphony
 
-Paper: Van Deursen et al., [Symphony: View-Driven Software Architecture Reconstruction](https://ipa.win.tue.nl/archive/springdays2005/Deursen1.pdf)
+[Symphony: View-Driven Software Architecture Reconstruction](https://ipa.win.tue.nl/archive/springdays2005/Deursen1.pdf)
 
-- Recovers views and viewpoints as in IEE 1471 / 3+1
-- Distinguishes between three kinds of views:
-    1. Source 
-     - view extracted from artifacts of a sytem
-     - not necessarily architectural (e.g. AST)
-    1. Target  
-     - describes architecture-as-implemented
-     - any of the 3+1 views
-    1. Hypothetical 
-     - architecture-as-designed
-     - existing documentation
-     - presentations
+- Paper by Van Deursen et al.
+- Distinguishes between three kinds of *views*
+    1. **Source** 
+	     - view extracted directly from artifacts of a system
+	     - not necessarily architectural (e.g. see later example)
+    2. **Target**  
+	     - describes architecture-as-implemented
+	     - any of the 3+1 views
+    3. **Hypothetical** 
+	     - architecture-as-designed
+	     - existing documentation
+	     - presentations
 
 ---
 
