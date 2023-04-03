@@ -9,7 +9,7 @@ IT University of Copenhagen
 # Architecture Reconstruction 
 
 
-Mircea Lungu
+Assoc. Prof. Mircea Lungu
 
 ---
 
