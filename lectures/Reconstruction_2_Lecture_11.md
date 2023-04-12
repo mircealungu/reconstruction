@@ -1,17 +1,23 @@
-<img src="images/first_cluster.png" width="50%" style="float:right"/>
-
 
 ## Lecture #11
 
-# Architecture Reconstruction (II) 
+# Architecture Reconstruction (II)
+
+
 
 M. Lungu 
 
 mlun@itu.dk
 
 
+---
+
 ### In the Previous Episode...
 
+
+![](images/all_modules_circular.png)
+
+---
 
 Approaches
 - Extract - abstract - view
@@ -49,8 +55,3 @@ For Next Time
 - If you're a programmer: try implementing some of the programming challenges [for abstraction](Basic_Abstraction.ipynb#Programming-Challenges) and [extraction](Advanced_Dependency_Extraction.ipynb#Programming-Challenge)
 - If you're not a programmer: start looking for tools that you'd like to use and start evaluating them
 
-
-
-```python
-
-```
