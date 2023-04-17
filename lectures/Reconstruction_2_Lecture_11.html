@@ -71,7 +71,7 @@ mlun@itu.dk
 - **Relationships**: import statements between .py files
 
 ---
-## Refining the system view to simplify it?
+## Refining the source view to simplify it?
 
 *Starting from the [Basic Data Gathering](https://colab.research.google.com/drive/1oe_TV7936Zmmzbbgq8rzqFpxYPX7SQHP?usp=sharing) notebook...*
  
@@ -79,24 +79,28 @@ mlun@itu.dk
 
 --
 
-- all system modules are in the `zeeguu` package
 - the view shows dependencies to external modules
 - if goal is understanding *this system's structure* ... are they needed?
 
 --
 
-2/ 👨‍💻 **Filter out the non-system dependencies** *(3min)* **Does the graph look better?**
+2/ 👨‍💻 **Filter out the non-system dependencies** *(approx. all that don't start with `zeeguu`)* **Does the graph look better?**
+
+--
+- Lesson: filtering is an important tool for AR
 
 --
 
 **2 / 👨‍💻 Let's try another [layout from networkx](https://networkx.org/documentation/stable/reference/drawing.html) (e.g. [draw_kamada_kawai](https://en.wikipedia.org/wiki/Force-directed_graph_drawing)**). Can you spot  other irellevant modules?
 
 --
+- tests are also not very relevant
+- Lesson: layouts are important 
 
-- `test` modules
-
+-- 
 **3 / 👨‍💻 Filter out tests**. **Does the view look cleaner?** 
 
+--
 
 *What else can we do here to simplify?*
 
@@ -111,6 +115,7 @@ mlun@itu.dk
 
 <img src="images/symphony.png" style="width:600px"/>
 
+"[...] domain knowledge is used to **define a map between the source and target view**." 
 
 ???
 
@@ -122,17 +127,21 @@ mlun@itu.dk
 
 ## Approach #1: Mapping Using Naming Conventions 
 
-"[...] domain knowledge is used to **define a map between the source and target view**." 
+
 
 [..] **if the mapping contains a rule about using naming conventions to combine classes into modules**, the resulting map lists each class and the module to which it belongs."
 
 --
 
-[**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf), Murphy et al. in
-1. Ask Linux maintainers to 
-	- draw dependencies between subsystems
-	- provide mappings from file names to subsystems
-2. Compare the *as-is* architecture with the *as-expected* architecture 
+Case Study: [**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf), *Murphy et al.*
+- Ask Linux maintainers to 
+
+	1. draw dependencies between subsystems (*as-expected* architecture)
+	2. provide mappings from file names to subsystems
+
+- Recover the *[as-implemented](https://youtu.be/E6N8TuqPU6o?t=30)* *module view*
+
+- Compare the *as-implemented* architecture with the *as-expected* architecture 
 
 
 ---
@@ -141,7 +150,7 @@ mlun@itu.dk
 
 <img src="./images/reflexion_model_hypothesis.png" style="width:900px"/>
 
-From:  [Software Reflexion Models: Bridging the Gap between Design and Implementation](./papers/murphy-reflexion.pdf)
+From:  [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf)
 
 ---
 
@@ -150,16 +159,16 @@ From:  [Software Reflexion Models: Bridging the Gap between Design and Implement
 
 <img src="images/reflexion_model_mappings.png" style="width:100%"/>
 
-From:  [Software Reflexion Models: Bridging the Gap between Design and Implementation](./papers/murphy-reflexion.pdf)
+From:  [Software Reflexion Models: Bridging the Gap...](./papers/murphy-reflexion.pdf)
 
 ---
 
 
-### Step 2. Comparing the As-Is vs. As-Expected Dependencies
+### Step 2. Comparing the As-Implemented and the As-Expected Dependencies
 
 <img src="./images/reflexion_model_comparison.png" style="width:100%"/>
 
-From:  [Software Reflexion Models: Bridging the Gap between Design and Implementation](./papers/murphy-reflexion.pdf)
+From:  [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf)
 
 ---
 
@@ -182,7 +191,7 @@ Obtaining it is an **iterative process**
     5. Interpret the software reflexion model.
     Until “happy”
 
-From:  [Software Reflexion Models: Bridging the Gap between Design and Implementation](./papers/murphy-reflexion.pdf)
+From:  [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf)
 
 ---
 ## Approach #2: Using the Folder Hierarchy for Aggregation
@@ -190,10 +199,10 @@ From:  [Software Reflexion Models: Bridging the Gap between Design and Implement
 Developers hierarchically organize files in folders. *Let us use that!* 
 1. Aggregate nodes
 2. Aggregate dependencies
-3. Show the aggregated dependencies 
+3. Show the aggregated dependencies & nodes
 
 Advantages
-1. Works for most languages!
+1. Works for most languages & most systems!
 2. Can be used in a MSc thesis :) (e.g. [topic1](https://github.com/mircealungu/student-projects/issues/4), [topic2](https://github.com/mircealungu/student-projects/issues/35)) 
 
 ---
@@ -213,7 +222,7 @@ From: [Evolutionary and Collaborative Software Architecture Recovery with Softwa
 
 ## Approach #2 - Basic Implementation in Python
 
-👨‍💻 Code: [Basic Abstraction](https://colab.research.google.com/drive/1IPPZytBD8ralYyTfofX_46DelXg2YF38#scrollTo=iQwzASq7XKEi)
+👨‍💻 Code: [Basic Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing)
 
 
 ---
@@ -239,17 +248,19 @@ Remember the def of architecture: **"[...] modules, their properties, and the re
 
 ---
 
-### Product metrics for modules and dependencies
+### Product metrics
 
-For **Modules**
-1. **Size** (Aggregated from file level)
-	- LOC - lines of code 
-	- NOM - number of methods
-2. **Complexity** (aggregated from file level)
+For **Files/Methods**
+- **Cyclomatic Complexity** (aggregated from file level)
 	- CYCLO - Cyclomatic Complexity ([wiki](https://en.wikipedia.org/wiki/Cyclomatic_complexity)) 
 	    - number of linearly independent code paths through source code (functions of the number of branches)
 	    - often used in quality: too much complexity is a bad thing
 	    - hidden partially by polymorphism
+
+For **Modules**
+- **Size** (Aggregated from file level)
+	- LOC - lines of code 
+	- NOM - number of methods
 
 For **Dependencies**
 - **Total count** of explicit low-level dependencies
@@ -295,12 +306,11 @@ Consider trying it out in your project if you're interested in network analysis!
 ## Importance of Dependencies
 
 
-To tell a story we need subjects and actions
+*To tell a story* we need subjects and actions
 
-To tell the story of a module view we need also subjects and actions
-  - subjects are the nodes in the view
-  - the actions are the meanings of the dependencies
-
+To tell the story of a module view we need
+  - subjects - the modules in the view
+  - actions - the meanings of the dependencies
 
 In your project aim to describe also the reason for the dependencies (at least the most essential ones)
 
@@ -322,11 +332,12 @@ In your project aim to describe also the reason for the dependencies (at least t
 
 ## Programming Challenges
 
-  - Can you visualize also dependency metrics with networkx?E.g. a stronger dependency as a thicker arrow? 
+  - Can you visualize also dependency metrics with networkx? E.g. a stronger dependency as a thicker arrow? 
   - Consider using `pyvis` instead of `networkx` -- it has much nicer visualizations!
   - Consider [exporting the data from networkx](https://networkx.github.io/documentation/stable/reference/drawing.html) into specialized graph visualization tools 
 
 **To Do: start working on your project! Don't leave it all for the last moment!** 
+
 
 ---
 
