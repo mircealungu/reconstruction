@@ -1,3 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reconstruction_2_Lecture_11-Live</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+         body { font-family: 'Droid Serif'; }
+    h1, h2, h3 {
+      font-family: 'Yanone Kaffeesatz';
+      font-weight: normal;
+    }
+    .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+    blockquote {
+      font-style: italic;
+      font-size: 80%;
+      background-color: lightgrey;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 100%;
+    }
+
+    tiny {
+      font-family: 'Droid Serif';
+      font-size: 10px!important;
+    }
+
+    .remark-slide-number {
+      font-size: 10pt;
+      margin-bottom: -11.6px;
+      margin-right: 10px;
+      color: #e0e0e0; /* white */
+      opacity: 1; /* default: 0.5 */
+    }
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
 
 class: center, middle
 
@@ -19,7 +63,7 @@ mlun@itu.dk
 
 ### The *source view* obtained last time
 
-![](images/all_dependencies_circular.png)
+<img src="images/all_dependencies_circular.png" style="width:100%"/>
 
 - **System**: Zeeguu-API
 - **Source View**: Modules & Dependencies
@@ -65,7 +109,7 @@ mlun@itu.dk
 - **condensing the low-level details ** of the source view, and 
 - **abstracting them** into architectural information.
 
-![600](images/symphony.png)
+<img src="images/symphony.png" style="width:600px"/>
 
 
 ???
@@ -95,7 +139,7 @@ mlun@itu.dk
 
 ### Step 1.a. Maintainers draw dependencies between subsystems
 
-![900](./images/reflexion_model_hypothesis.png)
+<img src="./images/reflexion_model_hypothesis.png" style="width:900px"/>
 
 From:  [Software Reflexion Models: Bridging the Gap between Design and Implementation](./papers/murphy-reflexion.pdf)
 
@@ -104,7 +148,7 @@ From:  [Software Reflexion Models: Bridging the Gap between Design and Implement
 
 ### Step 1.b. Maintainers provide mappings from file names to subsystems
 
-![](images/reflexion_model_mappings.png)
+<img src="images/reflexion_model_mappings.png" style="width:100%"/>
 
 From:  [Software Reflexion Models: Bridging the Gap between Design and Implementation](./papers/murphy-reflexion.pdf)
 
@@ -113,7 +157,7 @@ From:  [Software Reflexion Models: Bridging the Gap between Design and Implement
 
 ### Step 2. Comparing the As-Is vs. As-Expected Dependencies
 
-![](./images/reflexion_model_comparison.png)
+<img src="./images/reflexion_model_comparison.png" style="width:100%"/>
 
 From:  [Software Reflexion Models: Bridging the Gap between Design and Implementation](./papers/murphy-reflexion.pdf)
 
@@ -157,7 +201,7 @@ Advantages
 ## Approach #2 - Example from ArgoUML
 
 
-![](images/aggregating_dependencies_upwards.png)
+<img src="images/aggregating_dependencies_upwards.png" style="width:100%"/>
 
 Two types of dependencies:
 1. Explicit
@@ -218,7 +262,7 @@ For **Dependencies**
 
 Useful in top-down interactive exploration, e.g. Softwarenaut ([video](https://vimeo.com/62767181), [paper](https://core.ac.uk/download/pdf/33045731.pdf))
 
-![600](./images/softwarenaut_screenshot.png)
+<img src="./images/softwarenaut_screenshot.png" style="width:600px"/>
 
 👨‍💻 Code: [Notebook in Collab](https://colab.research.google.com/drive/1IPPZytBD8ralYyTfofX_46DelXg2YF38#scrollTo=h6smbfIlcggm)
 
@@ -354,7 +398,7 @@ In general, a complicated business
 - Includes whitespace (e.g., EOL): empty boxes in  the figure
   
 
-![540](images/parse__tree.png)
+<img src="images/parse__tree.png" style="width:540px"/>
 
 ---
 
@@ -366,7 +410,7 @@ In general, a complicated business
 
   
 
-![400](images/ast.png)
+<img src="images/ast.png" style="width:400px"/>
 
 
 ---
@@ -456,3 +500,12 @@ For Next Time
 - If you're a programmer: try implementing some of the programming challenges [for abstraction](Basic_Abstraction.ipynb#Programming-Challenges) and [extraction](Advanced_Dependency_Extraction.ipynb#Programming-Challenge)
 - If you're not a programmer: start looking for tools that you'd like to use and start evaluating them
 
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+    var slideshow = remark.create();
+    </script>
+  </body>
+</html>

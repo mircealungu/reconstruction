@@ -2,7 +2,7 @@ class: center, middle
 
 IT University of Copenhagen
 
-#### Software Architecture Course
+#### Software Architecture
 
 ###  Session #10
 
