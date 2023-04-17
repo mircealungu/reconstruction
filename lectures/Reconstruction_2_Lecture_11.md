@@ -229,15 +229,17 @@ For **Dependencies**
 
 Useful in top-down interactive exploration, e.g. Softwarenaut ([video](https://vimeo.com/62767181), [paper](https://core.ac.uk/download/pdf/33045731.pdf))
 
-![600](./images/softwarenaut_screenshot.png)
+![400](./images/polymetric_view_of_argouml.png)
 
-👨‍💻 Code: [Notebook in Collab](https://colab.research.google.com/drive/1IPPZytBD8ralYyTfofX_46DelXg2YF38#scrollTo=h6smbfIlcggm)
+e.g., Augmeting nodes and dependencies with metrics in ArgoUML packages with a *polymetric view* 
 
+
+👨‍💻 Coding Assignment: Compute size metrics, and map them on the nodes in your module view at the end of the [Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing) notebook
 
 ---
 
 
-## Approach #3: Network Analysis
+## Approach #3 (research!): Keep Only the Most Essential Elements Based on Network Analysis
 <img src="images/first_cluster.png" style="float:right" />
 
 e.g. Paper: [Ranking software artifacts](http://scg.unibe.ch/archive/papers/Peri10bRankingSoftware.pdf). by Perin, Renggli, and Ressia
@@ -268,6 +270,8 @@ To tell the story of a module view we need
   - subjects - the modules in the view
   - actions - the meanings of the dependencies
 
+![300](./images/top_three_dependencies.png)
+
 In your project aim to describe also the reason for the dependencies (at least the most essential ones)
 
 ---
@@ -277,193 +281,21 @@ In your project aim to describe also the reason for the dependencies (at least t
 
 - Mapping metrics on visualizations helps make sense of the data
 
-- Semi-automatic solutions are always required in AR
+- Semi-automatic (~*automation with human in the loop*) solutions are always required in Architecture Reconstruction
 
 - The difference between the views recovered today and a hand-drawn UML diagram? 
-  - what we created today is always telling the truth
+  - what we created today is always telling the truth (*live diagrams*)
   - but, **maybe not all the truth?**
 
 ---
 
 
-## Programming Challenges
+# Personalizing your Project
 
-  - Can you visualize also dependency metrics with networkx? E.g. a stronger dependency as a thicker arrow? 
-  - Consider using `pyvis` instead of `networkx` -- it has much nicer visualizations!
-  - Consider [exporting the data from networkx](https://networkx.github.io/documentation/stable/reference/drawing.html) into specialized graph visualization tools 
+- Can you complete the implementation of the import extractor with the missing part? 
+- Can you visualize also dependency metrics with networkx? E.g. a stronger dependency as a thicker arrow? 
+- Consider using `pyvis` instead of `networkx` -- it has much nicer visualizations!
+- Consider [exporting the data from networkx](https://networkx.github.io/documentation/stable/reference/drawing.html) into specialized graph visualization tools 
 
 **To Do: start working on your project! Don't leave it all for the last moment!** 
-
-
----
-
-# Backmatter
-
-## What are the limitations of our relationship extraction?
-
---
-
-- Missing Details
-- Imprecisely Extracted
-
-*Why?* 
-
----
-
-### Missing Details
-
-Other relationships that are more precise exist between the elements of the system
-- Inheritance between classes
-- Implementation of interfaces
-- Method call
-- The *cardinality of the relationship is not clear*
-	- one import might be used 100 times in the file
-	- another one might not be used at all
-
-A special kind of dependency: logical coupling.
-
----
-
-### Imprecisely Extracted
-- Even imports are too imprecisely extracted
-- What if an import is in a comment
-- What if it is inside of a method
-- What if it is inside of a commented out method?
-
-*Why?*  
-
-Because of the limitations of regular expressions.
-
-*Solution?*
-
-Parsing. 
-
----
-
-## Parsing Source Code
-
-  
-- basic component in compiler technology: a.k.a. semantic analysis
-- a precise way of **extracting** information from source code (vs. RE)
-
-
-Approaches
-- manual: e.g. PEGs (Parsing Expression Grammars)
-- parser generators (Bison, Antlr, etc.)
-  
-
-In general, a complicated business 
-- See: A Few Billion LOC Later
-- use a language specific parsing library (e.g. `ast` package in Python)
-
-
----
-
-## Parse Tree
-
-- Full representation of the structure of a program
-- Includes whitespace (e.g., EOL): empty boxes in  the figure
-  
-
-![540](images/parse__tree.png)
-
----
-
-## AST = Abstract Syntax Tree
-
-- Minimal representation of the meaning of the program
-- Nodes correspond to constructs in the language
-- Enables: inspection, modification and program transformation
-
-  
-
-![400](images/ast.png)
-
-
----
-
-## In Python: the `ast` package
-
-- `ast` package ([docs](https://docs.python.org/3/library/ast.html)) is part of the standard language distribution
-- similar packages in other languages
-- tree of nodes representing syntactic constructs
-- nodes are instances of ast.AST
- 
-
----
-
-### AST nodes
-
-Have two types of attributes:
-
-- attributes (properties)
-
-- lineno, col_offset
-
-- fields (subnodes)
-
-- One of 5 types: identifier, int, string, object, bool
-
-
----
-
-### Visiting an AST
-
-  
-
-The Visitor design pattern strikes back :)
-
-- Your class should subclass `ast.NodeVisitor`
-
-- `NodeVisitor` subclasses traverse an AST
-
-- Traversal is depth-first, preorder
-
-- i.e. first node, then children
-
-- You become involved by defining visit_<nodetype> methods
-
-	- Visit your chidren, or define `generic_visit`
-	
-	- generic_visit calls visit() on all children of the node.
-
-- Note: child nodes of nodes that have a custom visitor method won’t be visited unless the visitor calls generic_visit() or visits them itself.
-
-  
-- visit lets you *skip* subtrees
-	- if you don't call generic_visit the visitor will not recurse in the current node
-	- can be convenient for expediency
-
-
-
-
----
-
-# Backmatter
-
-Today: 
-- [Basic Abstraction / Knowledge Inference](Basic_Abstraction.ipynb)
-- [Advanced Extraction: Parsing and ASTs](Advanced_Dependency_Extraction.ipynb)
-- [Individual Project Description](https://docs.google.com/document/d/10bTyUS4ZocReS3j2AxHak_-rBh_Yv_0NM6XDQrt0YkY/edit#)
-- Sneak peek at snippets from last year's reports
-
-
-
-For Next Time
-- Choose a system for yor case study
-  - start familiarizing yourself with the system
-    - [read all the code in one hour](https://eng.libretexts.org/Bookshelves/Computer_Science/Book%3A_Object-Oriented_Reengineering_Patterns_(Demeyer_Ducasse_and_Nierstrasz)/03%3A_First_Contact/3.03%3A_Read_all_the_Code_in_One_Hour)
-    - download the code; can you make it run locally?
-  - you should at least know what the system does before trying to recover it's architecture
-  
-
-- If your system is a Python system start applying the scripts of today on it
-  - Consider applying them on [Zeeguu-API](https://github.com/zeeguu-ecosystem/Zeeguu-API) 
-    - you'll have to make a few changes to the code though
-    - Should be doable even if you don't have much programming skills (or?)
-    - Submit [anonymous questions](https://docs.google.com/forms/d/e/1FAIpQLSeAyKO1WUYn9W9-ZN3UrPU2ScEkI0a6fKZsNMHmtuLUb6RHAg/viewform) or post on Teams if you encounter any problems 
-
-
-- If you're a programmer: try implementing some of the programming challenges [for abstraction](Basic_Abstraction.ipynb#Programming-Challenges) and [extraction](Advanced_Dependency_Extraction.ipynb#Programming-Challenge)
-- If you're not a programmer: start looking for tools that you'd like to use and start evaluating them
 
