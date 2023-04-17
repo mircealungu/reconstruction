@@ -13,9 +13,9 @@ Assoc. Prof. Mircea Lungu
 
 mlun@itu.dk
 
-
-(Latest version at: [github.com/mircealungu/ar](https://github.com/mircealungu/ar))
-
+<div style="font-size:small; margin-top:150px">
+<a href="https://github.com/mircealungu/reconstruction">github.com/mircealungu/reconstruction</a>
+</div>
 
 ---
 

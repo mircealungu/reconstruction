@@ -1,4 +1,4 @@
-FILENAME := Reconstruction_2_Lecture_11
+FILENAME := Reconstruction_2
 
 .PHONY: all watch preview
 
