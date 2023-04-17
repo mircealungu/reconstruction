@@ -5,7 +5,7 @@ IT University of Copenhagen
 
 #### Software Architecture
 
-###  Session #10
+###  Session #11
 
 # Reconstruction (II): Abstraction
 
