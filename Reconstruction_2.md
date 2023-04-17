@@ -9,10 +9,12 @@ IT University of Copenhagen
 
 # Reconstruction (II): Abstraction
 
-
 Assoc. Prof. Mircea Lungu
 
 mlun@itu.dk
+
+
+(Latest version at: [github.com/mircealungu/ar](https://github.com/mircealungu/ar))
 
 
 ---
