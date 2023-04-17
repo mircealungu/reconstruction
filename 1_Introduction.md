@@ -11,6 +11,10 @@ IT University of Copenhagen
 
 Assoc. Prof. Mircea Lungu
 
+<div style="font-size:small; margin-top:150px">
+<a href="https://github.com/mircealungu/reconstruction">github.com/mircealungu/reconstruction</a>
+</div>
+
 ---
 
 
