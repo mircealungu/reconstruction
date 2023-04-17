@@ -1,1 +1,1 @@
-# itu-architecture-reconstruction
+Materials for the Architecture Reconstruction sessions from the Software Architecture course at the IT University in Copenhagen.
