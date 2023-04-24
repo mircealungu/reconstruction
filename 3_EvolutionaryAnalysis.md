@@ -30,70 +30,120 @@ mlun@itu.dk
 
 ![400](images/heraclitus.png)
 
-> Everything changes, and nothing stands still,
-> and you can not step twice ... in the same system.
+> No man ever steps in the same river twice, for it is not the same river and he is not the same man.
 
-> -- Heraclitus on Software Evolution
+> -- Heraclitus
 
 
 ---
+# Software Systems Must Evolve 
 
-## People used to talk about software maintenance as a separate phase.
+> An e-type program that is used in a real-world environment must change, or become progressively less useful in that environment. (Lehman's Law of Continuing Change)
 
-Nowadays, academics talk about software evolution. 
-A term introduced by M. Lehman. 
-Who also proposed the laws of software evolution. 
+*What might be referring to when he talks about an e-type system?*
 
-From this POV, the architecture metaphor is not the best. A garden evolves. Would have been a better metaphor.
+--
 
-Although, architecture is also not that bad.
-How buildings learn. 
+- an e-type system is *embedded* in the real world
+- the world changes, so the system must change
+
+---
+
+# Software Evolution
+
+**Software evolution is the continual development of a piece of software after its initial release to address changing stakeholder and/or market requirements**
+
+- we used to talk about *software maintenance*
+- nowadays evolution is the preferred term
+
+---
+## Metaphors?
+
+From this POV, the architecture metaphor is not the best. Would a *garden* been a better metaphor?
+
+---
+
+### Although, architecture is also not that bad.
+
+![](images/how_buildings_learn.png)
+
 Even buildings evolve.
+
+---
+# So What is Evolution Analysis?
+
+= the study of how a system evolves over time
+
+*Where can we find such information about its evolution?*
 
 ---
 
 
 ##  Where can we find information about the evolution?
 
-Version control repository.
 
+Version control repository.
+Let's try this together: 
+
+```
+git clone git@github.com:zeeguu/api.git
+npx -y git-truck-beta@latest
+```
+
+What an we see about this system?
 
 ---
 
 # In which way can this information be useful for architecture recovery?
 
-It can tell us about which parts of the system are most changed. 
-And thus, very likely, most important. 
+--
 
-
----
-
-## Architectural Viewpoint: Evolutionary Hotspots
-
-  
-### Evolutionary Hotspots =(*def*) **code entities where most effort was invested ** [1]
-
-
-Assumption: effort is proportional to architectural relevance  
+To  highlight the parts of the system that are most changed
 
 Why?
 
-Philosophycally
+--
+
 
 > *"The value of anything is proportional to time invested in it."* (M. Lungu)
 
 
 Practically:
-- high *churn* (change density) predicts bugs better than size [...]
-- studies observe correlation between churn and complexity metrics [...]
+- studies observe correlation between [*code churn*](https://linearb.io/blog/what-is-code-churn/) and complexity metrics
 - it's likely that they'll require more effort in the future (e.g. yesterday's weather [Girba et al.])
+- high *code churn* predicts bugs better than size 
 
-Pragmatically:
-- can be detected with **language independent analysis** (which is good for polyglot systems)
+
+---
+## Code Churn
+ 
+ = a metric that indicates how often a given piece of code—e.g., a file, a class, a function—gets edited. 
+ 
+ - process metric (*as opposed to?*)
+ - can suggest relevance for the architecture (*in wjhich way?*)
+ - can be detected with **language independent analysis** (which is good for polyglot systems)
+
 
 ---
 
-## What are the challenges when analyzing software evolution? 
+## Viewpoint: Evolutionary Hotspots
+
+  
+###  =(*def*) **an architectural viewpoint that highlights those code entities where most commits are made** [1]
+
+
+Notebook: [Computing Evolutionary Hotspots with PyDriller](https://colab.research.google.com/drive/1T4Hj12uD6h5Ody4ietooe5nW-yGFCoX9?usp=sharing)
+
+
+---
+
+# Limitations
+
+- Ignores developer styles
+	- the micro-commits developer vs. the large chunk commiter
+- Might detect files that `README.md`, or `LICENSE.md` changes the most
+	- can be combined with static complexity metrics
+- Provides different results for different time periods
 
 
 
