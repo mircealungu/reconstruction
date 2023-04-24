@@ -82,7 +82,7 @@ Version control repository.
 
 --
 
-Are you aware of tools that supports such analysis? 
+*Are you aware of tools that supports such analysis?* 
 
 --
 
@@ -93,8 +93,14 @@ git clone git@github.com:zeeguu/api.git
 npx -y git-truck-beta@latest
 ```
 
-What an we see about this system?
-Why is it named git-truck? 
+*Why is it named git-truck?* 
+
+--
+
+The [truck-factor](https://www.agileadvice.com/2005/05/15/agilemanagement/truck-factor/) 
+To think about
+- Is a turck factor good if high or if low?
+- How could you improve it?
 
 ---
 
@@ -143,13 +149,17 @@ Notebook: [Computing Evolutionary Hotspots with PyDriller](https://colab.researc
 
 # Challenges
 
+
 - Taking into account developer styles
 	- the micro-commits developer vs. the large chunk commiter
-- Remocing irellevant files that change frequently (`README.md`, or `LICENSE.md`)
+- Removing irellevant files that change frequently (`README.md`, or `LICENSE.md`)
 	- Combine with static complexity metrics
 	- Manual investigation
 - Selecting the appropriate time-interval for the analysis 
 	- Weighting towards recency (discarding past changes more)
+- Sometimes git loses track of file history
+	- e.g. if you rename and make changes at the same time
+
 
 
 
