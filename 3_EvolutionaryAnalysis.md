@@ -76,14 +76,17 @@ Even buildings evolve.
 
 *Where can we find such information about its evolution?*
 
----
-
-
-##  Where can we find information about the evolution?
-
+--
 
 Version control repository.
-Let's try this together: 
+
+--
+
+Are you aware of tools that supports such analysis? 
+
+--
+
+One example: [Git-Truck](https://github.com/git-truck/git-truck)
 
 ```
 git clone git@github.com:zeeguu/api.git
@@ -91,6 +94,7 @@ npx -y git-truck-beta@latest
 ```
 
 What an we see about this system?
+Why is it named git-truck? 
 
 ---
 
@@ -137,13 +141,15 @@ Notebook: [Computing Evolutionary Hotspots with PyDriller](https://colab.researc
 
 ---
 
-# Limitations
+# Challenges
 
-- Ignores developer styles
+- Taking into account developer styles
 	- the micro-commits developer vs. the large chunk commiter
-- Might detect files that `README.md`, or `LICENSE.md` changes the most
-	- can be combined with static complexity metrics
-- Provides different results for different time periods
+- Remocing irellevant files that change frequently (`README.md`, or `LICENSE.md`)
+	- Combine with static complexity metrics
+	- Manual investigation
+- Selecting the appropriate time-interval for the analysis 
+	- Weighting towards recency (discarding past changes more)
 
 
 
