@@ -139,7 +139,7 @@ Practically:
 ## Viewpoint: Evolutionary Hotspots
 
   
-###  =(*def*) **an architectural viewpoint that highlights those code entities where most commits are made** [1]
+###  = **an architectural viewpoint that highlights those code entities where most commits are made** 
 
 
 Notebook: [Computing Evolutionary Hotspots with PyDriller](https://colab.research.google.com/drive/1T4Hj12uD6h5Ody4ietooe5nW-yGFCoX9?usp=sharing)
