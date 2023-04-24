@@ -2,11 +2,9 @@ class: center, middle
 
 IT University of Copenhagen
 
-#### Software Architecture
+#### Software Architecture Reconstruction
 
-###  Session #10
-
-# Architecture Reconstruction 
+# I: Introduction
 
 
 Assoc. Prof. Mircea Lungu
