@@ -3,11 +3,11 @@ class: center, middle
 
 IT University of Copenhagen
 
-#### Software Architecture
+### Software Architecture
 
-###  Session #11
+#### Architecture Reconstruction
 
-# Reconstruction (IV): Visualization
+# IV: Visualization
 
 Assoc. Prof. Mircea Lungu
 
@@ -72,9 +72,8 @@ From: https://www.circleofblue.org/2013/world/peter-gleick-200-years-of-dr-john-
 
 ![200](images/tufte-book.png)
 
-Encourages you to think about presenting information, e.g.
 
-**The Five Laws of Data-Ink: [Example](https://www.codeconquest.com/blog/data-ink-ratio-explained-with-example/)**
+Introduces: **The Five Laws of Data-Ink ([Example](https://www.codeconquest.com/blog/data-ink-ratio-explained-with-example/))**
 1. Above all else, show the data 
 2. Maximize Data-Ink Ratio
 3. Erase non-data ink
@@ -141,7 +140,7 @@ Aproaches touched today
 
 ![780](images/argouml_system_complexity.png)
 
-Entities: Classes and relationships; Height: \# of Attributes; Width: \# of Methods; Color: LOC
+Entities: Classes: Relationships: inheritance. Height: \# of Attributes; Width: \# of Methods; Color: LOC
 
 
 ???
