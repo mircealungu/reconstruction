@@ -41,6 +41,16 @@ Well presented information visualization:
 
 ![](images/tufte_napoleon.png)
 
+???
+
+[**Charles Minard**](http://t.umblr.com/redirect?z=http%3A%2F%2Fwww.edwardtufte.com%2Ftufte%2Fminard-obit&t=OTE3ZmE1M2ZiMTBiYWYwZDgwN2VlN2ZmMzhjYTI3N2JkOWM2MGY2Nyx3YWNGM3RHZQ%3D%3D)’s 1869 graph of Napoleon’s 1812 march on Moscow shows the dwindling size of the army. **Tufte says that it is probably the best statistical graphic ever drawn.**
+
+The broad line on top represents the army’s size on the march from Poland to Moscow. The thin dark line below represents the army’s size on the retreat. The width of the lines represents the army size, which started over 400,000 strong and dwindled to 10,000. The bottom lines are temperature and time scales, and the overall plot shows distance travelled.
+
+A nice modern, [rerendering](https://graphworkflow.com/2019/06/25/minard/) 
+
+
+
 ---
 
 ## Dr. John Snows Cholera Map of London
@@ -60,9 +70,21 @@ From: https://www.circleofblue.org/2013/world/peter-gleick-200-years-of-dr-john-
 
 ![200](images/tufte-book.png)
 
-Contains the previous examples and many more
+Includes the previous examples 
+
+Contains principles for information presentation, e.g. The Five Laws of Data-Ink (T[example](https://www.codeconquest.com/blog/data-ink-ratio-explained-with-example/))
+- Above all else, show the data 
+- Maximize Data-Ink Ratio
+- Erase non-data ink
+- Erase redundant data ink
+- Revise and edit
 
 Encourages you to think about presenting information 
+
+???
+
+[Maximize Data-Ink ratio at infovis-wiki](https://infovis-wiki.net/wiki/Data-Ink_Ratio) 
+
 
 ---
 
@@ -92,10 +114,13 @@ Encourages you to think about presenting information
 
 ### Limitations of UML Class Diagrams
 
-- do not scale well
-- it is not an information visualization tool
-- it was designed as a specification language
-- not even ArgoUML has class diagrams about itself
+- Do not scale well
+- Not even ArgoUML has class diagrams about itself
+
+UML
+- Designed as a **modeling** language (thus for specification)
+- not an information visualization tool
+
 
 *Solution? Learn from Infovis!*
 
