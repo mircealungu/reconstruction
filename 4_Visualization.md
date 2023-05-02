@@ -197,7 +197,7 @@ class: center, middle
 
 - Text readability - increase contrast or increase font
 - Layout - increase distance between the central nodes
-- Add Legend - otherwise how do I know whether this is 1KLOC or 1MLOC?
+- Add Legend & Scale - otherwise how do I know whether this is 1KLOC or 1MLOC?
 
 
 ---
