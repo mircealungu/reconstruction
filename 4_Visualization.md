@@ -143,10 +143,6 @@ Aproaches touched today
 Entities: Classes: Relationships: inheritance. Height: \# of Attributes; Width: \# of Methods; Color: LOC
 
 
-???
-
-- TODO: add reference to the Polymetric Views paper
-
 ---
 
 ## Polymetric View
