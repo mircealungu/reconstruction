@@ -1,1 +1,1 @@
-Materials for the Architecture Reconstruction sessions from the Software Architecture course at the IT University in Copenhagen.
+Course materials for the Architecture Reconstruction sessions from the Software Architecture course at the IT University in Copenhagen.
