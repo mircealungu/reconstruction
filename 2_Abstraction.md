@@ -1,4 +1,3 @@
-
 IT University of Copenhagen
 
 # Software Architecture Reconstruction: Abstraction
