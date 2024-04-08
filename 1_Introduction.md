@@ -8,8 +8,6 @@ Mircea Lungu
 
 
 
-
-
 ## Meta
 
 This and following three lectures
