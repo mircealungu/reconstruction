@@ -23,7 +23,7 @@ mlun@itu.dk
 
 *Starting from the [Basic Data Gathering](https://colab.research.google.com/drive/1oe_TV7936Zmmzbbgq8rzqFpxYPX7SQHP?usp=sharing) notebook...*
  
-**1/ 👨‍💻 Add labels to the nodes. Do you see irellevant nodes?**
+**1/ Add labels to the nodes. Do you see irellevant nodes?**
 
 --
 
@@ -32,21 +32,21 @@ mlun@itu.dk
 
 --
 
-2/ 👨‍💻 **Filter out the non-system dependencies** *(approx. all that don't start with `zeeguu`)* **Does the graph look better?**
+2/ **Filter out the non-system dependencies** *(approx. all that don't start with `zeeguu`)* **Does the graph look better?**
 
 --
 - Lesson: filtering is an important tool for AR
 
 --
 
-**2 / 👨‍💻 Let's try another [layout from networkx](https://networkx.org/documentation/stable/reference/drawing.html) (e.g. [draw_kamada_kawai](https://en.wikipedia.org/wiki/Force-directed_graph_drawing)**). Can you spot  other irellevant modules?
+**2 / Let's try another [layout from networkx](https://networkx.org/documentation/stable/reference/drawing.html) (e.g. [draw_kamada_kawai](https://en.wikipedia.org/wiki/Force-directed_graph_drawing)**). Can you spot  other irellevant modules?
 
 --
 - tests are also not very relevant
 - Lesson: layouts are important 
 
 -- 
-**3 / 👨‍💻 Filter out tests**. **Does the view look cleaner?** 
+**3 / Filter out tests**. **Does the view look cleaner?** 
 
 --
 
@@ -174,7 +174,7 @@ From: [Evolutionary and Collaborative Software Architecture Recovery with Softwa
 
 ### Basic Implementation in Python
 
-👨‍💻 Code: [Basic Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing)
+Code: [Basic Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing)
 
 
 
@@ -230,7 +230,7 @@ Useful in top-down interactive exploration, e.g. Softwarenaut ([video](https://v
 e.g., Augmeting nodes and dependencies with metrics in ArgoUML packages with a *polymetric view* 
 
 
-👨‍💻 Coding Assignment: Compute size metrics, and map them on the nodes in your module view at the end of the [Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing) notebook
+Coding Assignment: Compute size metrics, and map them on the nodes in your module view at the end of the [Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing) notebook
 
 
 
