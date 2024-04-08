@@ -236,7 +236,6 @@ AR could be a possible first step in reengineering
 
 ## Data Gathering: Interactive Case Study
 
-
 Example: [Google Collab with Basic Data Gathering](https://colab.research.google.com/drive/1oe_TV7936Zmmzbbgq8rzqFpxYPX7SQHP#scrollTo=0ruTtX88Tb-w)
 Or, *why source viewpoints are not necessarily architectural?*
 
@@ -258,6 +257,7 @@ Or, *why source viewpoints are not necessarily architectural?*
 
 
 ## Goal
+
 - **Recover the architecture of an existing system**
 
 - Document the outcome in an **individual report**
@@ -295,6 +295,7 @@ or,
 	- might make more sense for another system - the Zeeguu one is too simple (could be done together with the module)
 
 ## Tools 
+
 - Are important for recovery
 
 - **If you can program**, then this is your chance to be coding **analysis tools** over the upcoming lectures
