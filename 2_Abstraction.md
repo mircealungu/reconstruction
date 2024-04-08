@@ -1,21 +1,14 @@
 
-class: center, middle
-
 IT University of Copenhagen
 
-#### Software Architecture Reconstruction
-
-# II: Abstraction
+# Software Architecture Reconstruction: Abstraction
 
 Assoc. Prof. Mircea Lungu
 
 mlun@itu.dk
 
-<div style="font-size:small; margin-top:150px">
 <a href="https://github.com/mircealungu/reconstruction">github.com/mircealungu/reconstruction</a>
-</div>
 
----
 
 ### The *source view* obtained last time
 
@@ -26,7 +19,7 @@ mlun@itu.dk
 - **Entities**: .py files in the project
 - **Relationships**: import statements between .py files
 
----
+
 ## Refining the source view to simplify it?
 
 *Starting from the [Basic Data Gathering](https://colab.research.google.com/drive/1oe_TV7936Zmmzbbgq8rzqFpxYPX7SQHP?usp=sharing) notebook...*
@@ -61,7 +54,7 @@ mlun@itu.dk
 *What else can we do here to simplify?*
 
 
----
+
 # Knowledge Inference / Abstraction
 
 
@@ -79,7 +72,7 @@ mlun@itu.dk
 >
 > -- Symphony, 6.2
 
----
+
 
 ## Approach #1: Mapping Using Naming Conventions 
 
@@ -87,48 +80,9 @@ mlun@itu.dk
 
 [..] **if the mapping contains a rule about using naming conventions to combine classes into modules**, the resulting map lists each class and the module to which it belongs."
 
---
-
-Case Study: [**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf), *Murphy et al.*
-- Ask Linux maintainers to 
-
-	1. draw dependencies between subsystems (*as-expected* architecture)
-	2. provide mappings from file names to subsystems
-
-- Recover the *[as-implemented](https://youtu.be/E6N8TuqPU6o?t=30)* *module view*
-
-- Compare the *as-implemented* architecture with the *as-expected* architecture 
 
 
----
-
-### Step 1.a. Maintainers draw dependencies between subsystems
-
-![900](./images/reflexion_model_hypothesis.png)
-
-From:  [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf)
-
----
-
-
-### Step 1.b. Maintainers provide mappings from file names to subsystems
-
-![](images/reflexion_model_mappings.png)
-
-From:  [Software Reflexion Models: Bridging the Gap...](./papers/murphy-reflexion.pdf)
-
----
-
-
-### Step 2. Comparing the As-Implemented and the As-Expected Dependencies
-
-![](./images/reflexion_model_comparison.png)
-
-From:  [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf)
-
----
-
-# Reflexion Model
+### Reflexion Model
 
 
 = an architectural viewpoint that indicates **where the source model and high-level model differ**
@@ -149,7 +103,50 @@ Obtaining it is an **iterative process**
 
 From:  [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf)
 
----
+
+
+#### Case Study
+
+In [**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf) *Murphy et al.*: 
+- Ask Linux maintainers to 
+
+	1. draw dependencies between subsystems (*as-expected* architecture)
+	2. provide mappings from file names to subsystems
+
+- Recover the *[as-implemented](https://youtu.be/E6N8TuqPU6o?t=30)* *module view*
+
+- Compare the *as-implemented* architecture with the *as-expected* architecture 
+
+
+##### Step 1.a. Maintainers draw dependencies between subsystems
+
+![900](./images/reflexion_model_hypothesis.png)
+
+From:  [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf)
+
+
+
+
+##### Step 1.b. Maintainers provide mappings from file names to subsystems
+
+![](images/reflexion_model_mappings.png)
+
+From:  [Software Reflexion Models: Bridging the Gap...](./papers/murphy-reflexion.pdf)
+
+
+
+
+##### Step 2. Comparing the As-Implemented and the As-Expected Dependencies
+
+![](./images/reflexion_model_comparison.png)
+
+From:  [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf)
+
+
+
+
+
+
 ## Approach #2: Using the Folder Hierarchy for Aggregation
 
 Developers hierarchically organize files in folders. *Let us use that!* 
@@ -161,9 +158,9 @@ Advantages
 1. Works for most languages & most systems!
 2. Can be used in a MSc thesis :) (e.g. [topic1](https://github.com/mircealungu/student-projects/issues/4), [topic2](https://github.com/mircealungu/student-projects/issues/35)) 
 
----
 
-## Approach #2 - Example from ArgoUML
+
+### Example from ArgoUML
 
 
 ![](images/aggregating_dependencies_upwards.png)
@@ -174,16 +171,16 @@ Two types of dependencies:
 
 From: [Evolutionary and Collaborative Software Architecture Recovery with Softwarenaut,](https://core.ac.uk/download/pdf/33045731.pdf) by Lungu et al.
 
----
 
-## Approach #2 - Basic Implementation in Python
+
+### Basic Implementation in Python
 
 👨‍💻 Code: [Basic Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing)
 
 
----
 
-## Complementary Tool: Software Metrics
+
+## Approach #3: Using Metrics for Abstraction
 
 A software [metric](https://www.javatpoint.com/software-engineering-software-metrics) is a **measure of software characteristics** which are measurable or countable
 
@@ -202,7 +199,7 @@ Remember the def of architecture: **"[...] modules, their properties, and the re
 *A: Metrics can express these "properties".*
 
 
----
+
 
 ### Product metrics
 
@@ -223,9 +220,9 @@ For **Dependencies**
 - **Number of distinct** explicit low-level dependencies 
 
 
----
 
-## Augmenting Recovered Views with Metrics
+
+### Augmenting Recovered Views with Metrics
 
 Useful in top-down interactive exploration, e.g. Softwarenaut ([video](https://vimeo.com/62767181), [paper](https://core.ac.uk/download/pdf/33045731.pdf))
 
@@ -236,10 +233,10 @@ e.g., Augmeting nodes and dependencies with metrics in ArgoUML packages with a *
 
 👨‍💻 Coding Assignment: Compute size metrics, and map them on the nodes in your module view at the end of the [Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing) notebook
 
----
 
 
-## Approach #3 (research!): Keep Only the Most Essential Elements Based on Network Analysis
+
+## Approach #4 (research!): Keep Only the Most Essential Elements Based on Network Analysis
 <img src="images/first_cluster.png" style="float:right" />
 
 e.g. Paper: [Ranking software artifacts](http://scg.unibe.ch/archive/papers/Peri10bRankingSoftware.pdf). by Perin, Renggli, and Ressia
@@ -259,22 +256,21 @@ Consider trying it out in your project if you're interested in network analysis!
      - even in the case of clustering we still need human intervention
 
 
----
-
-## Importance of Dependencies
 
 
-*To tell a story* we need subjects and actions
+## Note: Importance of Understanding Dependencies in Architecture Reconstruction
 
-To tell the story of a module view we need
+AR helps us to *tell a story* about the system. 
+
+To tell a story one needs:
   - subjects - the modules in the view
-  - actions - the meanings of the dependencies
+  - actions - the dependencies in the view 
 
 ![300](./images/top_three_dependencies.png)
 
 In your project aim to describe also the reason for the dependencies (at least the most essential ones)
 
----
+
 
 
 ## To Think About
@@ -287,7 +283,7 @@ In your project aim to describe also the reason for the dependencies (at least t
   - what we created today is always telling the truth (*live diagrams*)
   - but, **maybe not all the truth?**
 
----
+
 
 
 # Personalizing your Project
