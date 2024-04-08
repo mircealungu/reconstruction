@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Run the Markdown to PDF conversion for staged Markdown files
+for file in $(git diff --cached --name-only --diff-filter=ACM | grep '\.md$'); do
+
+    # Extract the filename without extension
+    filename_no_extension="${file%.*}"
+    
+    echo file: $file 
+    echo filename: $filename_no_extension
+
+
+    echo "pre-commit: converting $file to $filename_no_extension.pdf"
+    echo "pre-commit:" ./tools/md_to_pdf.sh "${file}"
+    ./tools/md_to_pdf.sh "${file}"
+    echo "pre-commit:" git add "${filename_no_extension}.pdf"
+    git add "${filename_no_extension}.pdf"
+done
