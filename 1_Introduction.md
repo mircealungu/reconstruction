@@ -10,7 +10,7 @@ Mircea Lungu
 
 
 
-# Meta
+## Meta
 
 This and following three lectures
  - Are material that you don't find in the SAiP textbook
@@ -27,7 +27,7 @@ Feedback & Questions
 
 
 
-# Imagine ... 
+## Imagine ... 
 
 - Onboarding on a new system
 - Buying a software company
@@ -35,27 +35,24 @@ Feedback & Questions
 	- a risk assessment for security
 	- an architectural evaluation
 
-&nbsp; &nbsp; 
 
--- What would be nice to have in all these circumstances but we almost never have?
-
---
-
--- **Up to date architectural documentation**
+Q:  What would be nice to have in all these circumstances but we almost never have?
 
 
 
 
 
+## What is the first thing you do when you buy a software company? 
 
 ![](images/twitter_arch_recovered.png)
 [link to original tweet](https://twitter.com/elonmusk/status/1593899029531803649)
 
 Even paying 50B for a company does not guarantee that you get architectural diagrams with the source code. 
 
+A: (to question above) **Up to date architectural documentation**.
 
 
-# Discussion
+## Discussion
 
 Have you seen architectural documentation for every system?
 
@@ -81,10 +78,8 @@ Have you seen architectural documentation for every system?
 
 
 
-
-# Architecture Erosion Example
-
-<img src='images/adjacent_connector_.png' />
+## Architecture Erosion Example
+![](images/adjacent_connector_.png)
 
 What could be the cause of erosion here?
 
@@ -93,9 +88,7 @@ Why would it be a problem?
 
 
 
-
-
-# How to Keep Architectural Documentation up to Date?
+## How to Keep Architectural Documentation up to Date?
 
 1 / **Enforcing architectural constraints** 
 - special DSLs and tools for architecture constraints definition (e.g. [Dictō](https://scg.unibe.ch/archive/papers/Cara14b-Dicto.pdf))
@@ -225,12 +218,13 @@ AR could be a possible first step in reengineering
 ### Execution: Information interpretation 
  - Visual representation
  - Analysis, creating new documentation
+
+
 ![](images/symphony.png)
 
 
-class: center, middle
 
-# Data Gathering: Interactive
+## Data Gathering: Interactive Case Study
 
 
 Example: [Google Collab with Basic Data Gathering](https://colab.research.google.com/drive/1oe_TV7936Zmmzbbgq8rzqFpxYPX7SQHP#scrollTo=0ruTtX88Tb-w)
@@ -240,7 +234,7 @@ Or, *why source viewpoints are not necessarily architectural?*
 # Individual Assignment
 
 
-### Goal is to
+## Goal
 - **Recover the architecture of an existing system**
 
 - Document the outcome in an **individual report**
@@ -251,14 +245,10 @@ Or, *why source viewpoints are not necessarily architectural?*
 
 
 
-
-# Individual Assignment (contd.)
-
-
-### Case-Study Systems
+## Case-Study Systems
 
 1. The Zeeguu Project 
-	- [Online Deployment](https://zeeguu.com) (invite code: zeeguu-beta)
+	- [Online Deployment](https://zeeguu.com) (invite code: zeeguu-usability)
 	- Code:
 		- Python Backend: [Zeeguu-API](https://github.com/zeeguu/API)
 		- React Frontend: [Zeeguu-Web](https://github.com/zeeguu/web) 
@@ -271,12 +261,9 @@ or,
 	- you confirm with me about the appropriateness of the system
 
 
-# Individual Assignment (contd.)
+## Viewpoints
 
-
-### Viewpoints to Recover
-
-1. Module Viewpoint
+1. Module Viewpoint (**default**)
 	- we will write example code snippets in collab to support this
 	- makes the most sense for the Zeeguu system
 
@@ -284,12 +271,7 @@ or,
 	- you could look at the execution or deployment information
 	- might make more sense for another system - the Zeeguu one is too simple (could be done together with the module)
 
-
-
-
-# Individual Assignment (contd.)
-
-### Tools 
+## Tools 
 - Are important for recovery
 
 - **If you can program**, then this is your chance to be coding **analysis tools** over the upcoming lectures
@@ -302,16 +284,16 @@ or,
 # For Next Week
 
   
-### Reading
+## Reading
 - [Symphony: View-Driven Software Architecture Reconstruction](https://ipa.win.tue.nl/archive/springdays2005/Deursen1.pdf)
 - [Demeyer et al., Object Oriented Reengineering Patterns](http://scg.unibe.ch/download/oorp/OORP.pdf) (Chapter 1.2)
   
-### Practice & Think About
+## Practice & Think About
 - [Google Collab with Basic Data Gathering](https://colab.research.google.com/drive/1oe_TV7936Zmmzbbgq8rzqFpxYPX7SQHP#scrollTo=0ruTtX88Tb-w)
 	- Understand the code
 	- Think about techniques for "abstracting" this information
 - Can you find equivalent off-the shelf tools?
 
-### Questions & Feedback
+## Questions & Feedback
 - Use the anonymous [form](https://forms.gle/ADWfDZdKfPwdFG1D6)
 - Or the forum if it's of general interest
