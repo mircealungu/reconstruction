@@ -2,7 +2,7 @@ IT University of Copenhagen
 
 # Software Architecture Reconstruction: Abstraction
 
-Assoc. Prof. Mircea Lungu
+Mircea Lungu
 
 mlun@itu.dk
 
@@ -10,6 +10,8 @@ mlun@itu.dk
 
 
 ### The *source view* obtained last time
+
+It is beautiful, isn't it?
 
 ![](images/all_dependencies_circular.png)
 
