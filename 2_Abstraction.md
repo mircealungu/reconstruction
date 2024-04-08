@@ -34,18 +34,14 @@ It is beautiful, isn't it?
 
 2/ **Filter out the non-system dependencies** *(approx. all that don't start with `zeeguu`)* **Does the graph look better?**
 
-
-- Lesson: filtering is an important tool for AR
-
+Lesson: filtering is an important tool for AR
 
 
 **2 / Let's try another [layout from networkx](https://networkx.org/documentation/stable/reference/drawing.html) (e.g. [draw_kamada_kawai](https://en.wikipedia.org/wiki/Force-directed_graph_drawing)**). Can you spot  other irellevant modules?
 
---
 - tests are also not very relevant
 - Lesson: layouts are important 
 
--- 
 **3 / Filter out tests**. **Does the view look cleaner?** 
 
 --
