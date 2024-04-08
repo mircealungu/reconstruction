@@ -27,19 +27,17 @@ It is beautiful, isn't it?
  
 **1/ Add labels to the nodes. Do you see irellevant nodes?**
 
---
 
 - the view shows dependencies to external modules
 - if goal is understanding *this system's structure* ... are they needed?
 
---
 
 2/ **Filter out the non-system dependencies** *(approx. all that don't start with `zeeguu`)* **Does the graph look better?**
 
---
+
 - Lesson: filtering is an important tool for AR
 
---
+
 
 **2 / Let's try another [layout from networkx](https://networkx.org/documentation/stable/reference/drawing.html) (e.g. [draw_kamada_kawai](https://en.wikipedia.org/wiki/Force-directed_graph_drawing)**). Can you spot  other irellevant modules?
 
