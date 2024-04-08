@@ -61,9 +61,15 @@ Have you seen architectural documentation for every system?
  
 
 
-## Why does architectural documentation become out of sync with system?
+## Why does architectural documentation not always exist and is not up to date?
 
  - Hard to maintain 
+
+- Sometimes that's not a priority at all - you're a startup that needs to show that it's viable
+
+- It requires a better and more general understanding of the system than just coding -> not everybody can even do it
+
+- Maybe you're designing your own product and nobody to ask you to do it
 
  - Link (traceability ) between architecture and code is not easy to establish
 
@@ -89,16 +95,21 @@ Why would it be a problem?
 ## How to Keep Architectural Documentation up to Date?
 
 1 / **Enforcing architectural constraints** 
-- special DSLs and tools for architecture constraints definition (e.g. [Dictō](https://scg.unibe.ch/archive/papers/Cara14b-Dicto.pdf))
+- special DSLs and tools for architecture constraints definition (e.g. [Dictō](https://scg.unibe.ch/archive/papers/Cara14b-Dicto.pdf)) (docker-compose?  infrastructure?)
+- type system?
 - some are implemented as Unit Tests  (e.g. [ArchUnit](https://www.archunit.org/use-cases))
-- pre-commit hooks? somebody should do a study! (<- Thesis idea)
+
+How to integrate? 
+- pre-commit hooks? somebody should do a study! (<- *Thesis idea*)
+- CI/CD
+- ...
 
 --
 
 2 / **Generating architectural diagrams from code**
 - as opposed to drawing them in Powerpoint
 - we'll see techniques for doing this
-- no sufficiently good tools for this (<- Thesis idea)
+- no sufficiently good tools for this (<- *Thesis idea*)
 
 --
 
@@ -148,6 +159,7 @@ Relation with architecture recovery? They are overlapping activities and use ove
 AR could be a possible first step in reengineering
 
 
+![](images/relationship-between-concepts.png)
 
 
 
@@ -197,7 +209,7 @@ AR could be a possible first step in reengineering
 
 
 ### Execution: Data gathering
- - Collecting and extracting low-level source views
+ - Collecting and extracting low-level **source views**
  - Can involve a multitude of sources
  
 ![](images/symphony.png)
@@ -206,7 +218,7 @@ AR could be a possible first step in reengineering
 
 
 ### Execution: Knowledge inference
- - Going from source to target views
+ - Going from **source** to target **views**
  - Abstracting low-level information
 
 ![](images/symphony.png)
@@ -227,6 +239,19 @@ AR could be a possible first step in reengineering
 
 Example: [Google Collab with Basic Data Gathering](https://colab.research.google.com/drive/1oe_TV7936Zmmzbbgq8rzqFpxYPX7SQHP#scrollTo=0ruTtX88Tb-w)
 Or, *why source viewpoints are not necessarily architectural?*
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Individual Assignment
