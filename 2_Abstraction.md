@@ -292,6 +292,8 @@ Reflection model = an architectural viewpoint that indicates **where the source 
 
 - Do you have access to the developers such that you can recover a reflection model viewpoint of the system?
 
+- Can you get ArchLens to work? Would that be a good tool for generating views? 
+
 **Advice: Start working on your project! Don't leave it all for the last moment!** 
 
 
