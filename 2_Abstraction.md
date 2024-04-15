@@ -88,7 +88,7 @@ Notebook: [Basic Abstraction: Exploring aggregation levels. ](https://colab.rese
 
 Conclusion: you can not know upfront to what level to aggregate. So it is good to be able to explore various levels. 
 
-It might be that **different modules need to be explored at different levels**. From the MSc thesis of two of your colleagues: 
+It might be that **different modules need to be explored at different levels**. From [ArchLens](https://github.com/archlens/ArchLens), a project started in the MSc thesis of two of your colleagues: 
 
 ```json
      "api-core-details": {
