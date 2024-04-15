@@ -142,9 +142,9 @@ For **Dependencies**
 
 ### Augmenting Recovered Views with Metrics
 
-One approach would be an interactive top-down exploration approach combined with metrics is  Softwarenaut ([video](https://vimeo.com/62767181), [paper](https://core.ac.uk/download/pdf/33045731.pdf)) described in  [Evolutionary and Collaborative Software Architecture Recovery with Softwarenaut,](https://core.ac.uk/download/pdf/33045731.pdf)  by Lungu et al. 
+One approach would be an interactive top-down exploration approach combined with metrics is  Softwarenaut ([video](https://vimeo.com/62767181)) described in [Evolutionary and Collaborative Software Architecture Recovery with Softwarenaut,](https://core.ac.uk/download/pdf/33045731.pdf) by Lungu et al.
 
-![400](./images/polymetric_view_of_argouml.png)
+![500](./images/polymetric_view_of_argouml.png)
 Figure: Augmeting nodes and dependencies with metrics in ArgoUML packages.
 
 
