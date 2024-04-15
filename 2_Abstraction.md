@@ -8,7 +8,9 @@ IT University of Copenhagen
 Mircea Lungu
 mlun@itu.dk
 
+
 ### The *source view* obtained last time... 
+
 ... is beautiful... isn't it?
 
 ![](images/all_dependencies_circular.png)
@@ -28,9 +30,9 @@ The view shows dependencies to external modules. if goal is understanding *this 
 	- Discuss: how to we define *external* modules?  
 
 
-Interactive: [**Filter out the non-system dependencies]([Basic Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). Does the graph look better? 
+Interactive: [Try to filter out the non-system dependencies]([Basic Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). Does the graph look simpler?
 
-Lesson: filtering is a useful *tool* in AR
+Lesson: *filtering is a useful tool in architecture recovery.*
 
 
 ### 2. Try different layouts
@@ -39,7 +41,7 @@ Graph layout drawing is a [has a rich and old history](https://en.wikipedia.org/
 
 Interactive: try [alternative layouts from networkx](https://networkx.org/documentation/stable/reference/drawing.html) 
 
-Lesson: layouts can make a difference
+Lesson: *layouts can also make a difference*
 
 
 
