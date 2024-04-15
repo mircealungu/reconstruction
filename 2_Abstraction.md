@@ -22,22 +22,24 @@ mlun@itu.dk
 
 ## What can we can do to simplify the source view?
 
- 
-**1/ Remove irrelevant nodes?**
+### 1. Remove irrelevant nodes
 
-- the view shows dependencies to external modules. if goal is understanding *this system's structure* ... are they needed?
+The view shows dependencies to external modules. if goal is understanding *this system's structure* ... are they needed?
 	- Discuss: how to we define *external* modules?  
 
-- Notebook activity: [**Filter out the non-system dependencies]([Basic Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). Does the graph look better? 
-- Conclusion: filtering is a useful *tool* in AR
+
+Interactive: [**Filter out the non-system dependencies]([Basic Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). Does the graph look better? 
+
+Lesson: filtering is a useful *tool* in AR
 
 
-**2 / Try different [layouts](https://en.wikipedia.org/wiki/Force-directed_graph_drawing#History? 
+### 2. Try different layouts
 
-Notebook activity: try the [draw_kamada_kawai](https://en.wikipedia.org/wiki/Force-directed_graph_drawing)  [layout from networkx](https://networkx.org/documentation/stable/reference/drawing.html) 
-- Lesson: layouts can make a difference
+Graph layout drawing is a [has a rich and old history](https://en.wikipedia.org/wiki/Force-directed_graph_drawing#History). 
 
+Interactive: try [alternative layouts from networkx](https://networkx.org/documentation/stable/reference/drawing.html) 
 
+Lesson: layouts can make a difference
 
 
 
