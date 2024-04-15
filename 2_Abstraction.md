@@ -48,7 +48,7 @@ Lesson: *layouts can also make a difference*
 
 # Knowledge Inference / Abstraction
 
-[Symphony...](./papers/deursen-symphony.pdf) (Sec. 6.2): "The reconstructor creates the target view by ...
+[Symphony...](./papers/deursen-symphony.pdf), when talking about knowledge inference (Sec. 6.2) mentions: *"The reconstructor creates the target view by ...*
 
 - **condensing the low-level details ** of the source view, and 
 - **abstracting them** into architectural information.
@@ -56,10 +56,12 @@ Lesson: *layouts can also make a difference*
 
 ![600](images/symphony.png)
 
-"[...] domain knowledge is used to **define a map between the source and target view**." 
+Furthermore, it talks about how: 
+
+*"[...] domain knowledge is used to **define a map between the source and target view**."* 
 
 
-> This activity may require either interviewing the system experts in order to formal- ize architecturally-relevant aspects not available in the implementation or to iteratively augment the source view by adding new concepts to the source viewpoint
+> This activity may require either interviewing the system experts in order to formalize architecturally-relevant aspects not available in the implementation or to iteratively augment the source view by adding new concepts to the source viewpoint
 >
 > -- Symphony, 6.2
 
