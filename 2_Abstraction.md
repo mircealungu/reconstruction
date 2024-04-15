@@ -48,8 +48,9 @@ Lesson: *layouts can also make a difference*
 
 # Knowledge Inference / Abstraction
 
-[Symphony...](./papers/deursen-symphony.pdf), when talking about knowledge inference (Sec. 6.2) mentions: *"The reconstructor creates the target view by ...*
+[Symphony...](./papers/deursen-symphony.pdf), when talking about knowledge inference (Sec. 6.2) mentions: 
 
+*"The reconstructor creates the target view by ...*
 - **condensing the low-level details ** of the source view, and 
 - **abstracting them** into architectural information.
 
@@ -92,7 +93,8 @@ Note: All images in this section are from the [Software Reflexion Models: Bridgi
 
 ![](./images/reflexion_model_comparison.png)
 
-Obtaining a reflection model is an **iterative process**: 
+Obtaining a **reflection model** is an **iterative process**: 
+
 
 ```
 Repeat
@@ -100,13 +102,13 @@ Repeat
 	2. Extract a source model
 	3. Define/Update declarative mapping between high- level model and source model
 	4. Reflexion model computed by system
-	5. Interpret the software reflexion model.
+	5. Interpret the software reflexion model
 Until “happy”
 ```
 
 ### Definition 
 
-Reflection model = an architectural viewpoint that indicates **where the source model and high-level model differ**
+Reflection model = (an ***architectural viewpoint*** that) indicates **where the source model and high-level model differ**
 
 1. Convergences
 2. Divergences
@@ -191,7 +193,7 @@ Pros:
 
 Cons:
 - Some languages don't use the folder structure the same way: C# has folders vary independent from namespaces. There you have to analyze namespaces. 
-- COBOL does not have a folder structure at all. Smalltalk also does not. 
+- COBOL does not have a folder structure at all. Smalltalk does not even have files. 
 
 
 
