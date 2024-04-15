@@ -82,15 +82,51 @@ Figure shows that we can distinguish between
 	- subclassing 
 2. **Implicit aggregated dependencies** (because there are other kinds of implicit dependencies we will see next time)
 
-### To Which Level Do we Aggregate? 
+### Aggregation can be done at multiple abstraction levels
 
 Notebook: [Basic Abstraction: Exploring aggregation levels. ](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). 
 
 Conclusion: you can not know upfront to what level to aggregate. So it is good to be able to explore various levels. 
 
-It might be that different modules need to be explored at different levels. 
+It might be that **different modules need to be explored at different levels**. From the MSc thesis of two of your colleagues: 
+
+```json
+     "api-core-details": {
+        "packages": [
+            {"packagePath":"api", "depth":2},
+            {"packagePath":"core", "depth":0}
+        ],
+        "ignorePackages": ["*test*"]
+
+```
 
 
+### Different views can tell complementary stories about a system
+
+It might even that one needs to apply the *divide and conquer* approach to split the complexity of a system's architecture in multiple, more manageable perspectives.
+
+```json
+    "views": {
+    
+        "topLevel": {
+             "packages": [
+                {"packagePath":"", "depth":0}
+            ],
+            "ignorePackages": []
+        },
+        
+	     "api-core-details": {
+	        "packages": [
+	            {"packagePath":"api", "depth":2},
+	            {"packagePath":"core", "depth":0}
+	        ],
+	        "ignorePackages": ["*test*"]    
+	}
+```
+
+![](images/top-level-view-with-archlens.png)
+
+![](images/api-core-view-with-archlens.png)
 
 ### Pros and Cons of Folder-Based Aggregation
 
