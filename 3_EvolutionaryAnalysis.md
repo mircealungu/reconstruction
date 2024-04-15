@@ -160,8 +160,7 @@ Notebook: [Computing Evolutionary Hotspots with PyDriller](https://colab.researc
 - Sometimes git loses track of file history
 	- e.g. if you rename and make changes at the same time
 
-Personalizing your project: 
-- Can you also *recommend architectural improvements*? 
+
 
 
 TODO:

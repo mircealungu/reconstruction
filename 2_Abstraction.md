@@ -232,25 +232,11 @@ Until “happy”
 Reflection model = an architectural viewpoint that indicates **where the source model and high-level model differ**
 
 1. Convergences
-1. Divergences
-1. Absences
+2. Divergences
+3. Absences
 
 
-
-
-# Personalizing your Project
-
-**Advice: Start working on your project! Don't leave it all for the last moment!** 
-
-**Heuristic: sum total of your work on coding and analysis should be one month worth. The report should be split proportionally between the work that you did. If you did more coding describe your architecture; if you did more analysis, describe your results. **
-
-- Can you visualize also dependency metrics with networkx? E.g. a stronger dependency as a thicker arrow? 
-- For the aestheticians: consider using `pyvis` instead of `networkx` -- it has much nicer visualizations!
-- Consider [exporting the data from networkx](https://networkx.github.io/documentation/stable/reference/drawing.html) into specialized graph visualization tools (e.g. cytoscape, etc.)
-- Compute size metrics, and map them on the nodes in your module view
-
-
-## To Think About
+# To Think About
 
 - In which way does mapping metrics on visualizations help make sense of the data
 
@@ -263,3 +249,24 @@ Reflection model = an architectural viewpoint that indicates **where the source 
 - Could we use ... LLMs?
 
 - Are there other abstractions that we didn't discuss about? What could they be? 
+
+# Personalizing your Project
+
+- Can you visualize also dependency metrics with networkx? E.g. a stronger dependency as a thicker arrow as in the Softwarenaut examples?
+
+- For the aestheticians: consider using `pyvis` instead of `networkx` -- it has much nicer visualizations!
+
+- Consider [exporting the data from networkx](https://networkx.github.io/documentation/stable/reference/drawing.html) into specialized graph visualization tools (e.g. cytoscape, etc.)
+
+- Compute size metrics, and map them on the nodes in your module view
+
+- Can you also *recommend architectural improvements*? 
+
+- Do you have access to the developers such that you can recover a reflection model viewpoint of the system?
+
+**Advice: Start working on your project! Don't leave it all for the last moment!** 
+
+
+
+
+
