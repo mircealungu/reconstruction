@@ -80,7 +80,7 @@ Introduced in [**Software Reflexion Models: Bridging the Gap between Design and 
 
 ### Step 1.a. Maintainers draw dependencies between subsystems
 
-![900](./images/reflexion_model_hypothesis.png)
+![Maintainer-drawn subsystem dependencies](./images/reflexion_model_hypothesis.png)
 
 Note: All images in this section are from the [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf) paper. 
 
