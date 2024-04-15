@@ -305,6 +305,9 @@ Case study: [Interactive Exploration of Semantic Clusters](papers/Interactive_Ex
 
 **Advice: Start working on your project! Don't leave it all for the last moment!** 
 
+Reminder: If you spend more time implementing an analysis script or tool, you should correspondingly spend space in the report describing that. [Project Description](https://docs.google.com/document/d/10bTyUS4ZocReS3j2AxHak_-rBh_Yv_0NM6XDQrt0YkY/edit)
+
+
 
 
 
