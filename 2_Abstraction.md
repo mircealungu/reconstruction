@@ -67,6 +67,57 @@ Furthermore, it talks about how:
 
 
 
+## Approach 0: Reflexion Models
+
+Introduced in [**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf) *Murphy et al.* which: 
+
+- Ask Linux maintainers to 
+	1. draw dependencies between subsystems (*as-expected* architecture)
+	2. provide mappings from file names to subsystems
+
+- Recover the *[as-implemented](https://youtu.be/E6N8TuqPU6o?t=30)* *module view*
+
+- Compare the *as-implemented* architecture with the *as-expected* architecture 
+
+
+### Step 1.a. Maintainers draw dependencies between subsystems
+
+![900](./images/reflexion_model_hypothesis.png)
+
+Note: All images in this section are from the [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf) paper. 
+
+### Step 1.b. Maintainers provide mappings from file names to subsystems
+
+![](images/reflexion_model_mappings.png)
+
+### Step 2. Comparing the As-Implemented and the As-Expected Dependencies
+
+![](./images/reflexion_model_comparison.png)
+
+Obtaining a reflection model is an **iterative process**: 
+
+```
+Repeat
+	1. Define/Update high-level model of interest
+	2. Extract a source model
+	3. Define/Update declarative mapping between high- level model and source model
+	4. Reflexion model computed by system
+	5. Interpret the software reflexion model.
+Until “happy”
+```
+
+### Definition 
+
+Reflection model = an architectural viewpoint that indicates **where the source model and high-level model differ**
+
+1. Convergences
+2. Divergences
+3. Absences
+
+
+
+
+
 ## Approach #1: Using the Folder Hierarchy
 
 Hierarchies are powerful. We organize societies in them. And we organize software systems in them. 
@@ -222,52 +273,6 @@ Case study: [Interactive Exploration of Semantic Clusters](papers/Interactive_Ex
 ![](images/interactive-semantic-clusters.png)
 
 
-# Reflexion Models
-
-Introduced in [**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf) *Murphy et al.* which: 
-
-- Ask Linux maintainers to 
-	1. draw dependencies between subsystems (*as-expected* architecture)
-	2. provide mappings from file names to subsystems
-
-- Recover the *[as-implemented](https://youtu.be/E6N8TuqPU6o?t=30)* *module view*
-
-- Compare the *as-implemented* architecture with the *as-expected* architecture 
-
-
-## Step 1.a. Maintainers draw dependencies between subsystems
-
-![900](./images/reflexion_model_hypothesis.png)
-
-Note: All images in this section are from the [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf) paper. 
-
-## Step 1.b. Maintainers provide mappings from file names to subsystems
-
-![](images/reflexion_model_mappings.png)
-
-## Step 2. Comparing the As-Implemented and the As-Expected Dependencies
-
-![](./images/reflexion_model_comparison.png)
-
-Obtaining a reflection model is an **iterative process**: 
-
-```
-Repeat
-	1. Define/Update high-level model of interest
-	2. Extract a source model
-	3. Define/Update declarative mapping between high- level model and source model
-	4. Reflexion model computed by system
-	5. Interpret the software reflexion model.
-Until “happy”
-```
-
-## Definition 
-
-Reflection model = an architectural viewpoint that indicates **where the source model and high-level model differ**
-
-1. Convergences
-2. Divergences
-3. Absences
 
 
 # To Think About
