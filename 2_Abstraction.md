@@ -193,25 +193,17 @@ Introduced in [**Software Reflexion Models: Bridging the Gap between Design and 
 - Compare the *as-implemented* architecture with the *as-expected* architecture 
 
 
-##### Step 1.a. Maintainers draw dependencies between subsystems
+## Step 1.a. Maintainers draw dependencies between subsystems
 
 ![900](./images/reflexion_model_hypothesis.png)
 
-From:  [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf)
+Note: All images in this section are from the [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf) paper. 
 
-
-
-
-##### Step 1.b. Maintainers provide mappings from file names to subsystems
+## Step 1.b. Maintainers provide mappings from file names to subsystems
 
 ![](images/reflexion_model_mappings.png)
 
-From:  [Software Reflexion Models: Bridging the Gap...](./papers/murphy-reflexion.pdf)
-
-
-
-
-##### Step 2. Comparing the As-Implemented and the As-Expected Dependencies
+## Step 2. Comparing the As-Implemented and the As-Expected Dependencies
 
 ![](./images/reflexion_model_comparison.png)
 
@@ -227,7 +219,7 @@ Repeat
 Until “happy”
 ```
 
-### Definition 
+## Definition 
 
 Reflection model = an architectural viewpoint that indicates **where the source model and high-level model differ**
 
