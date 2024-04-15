@@ -32,10 +32,9 @@ mlun@itu.dk
 - Conclusion: filtering is a useful *tool* in AR
 
 
+**2 / Try different [layouts](https://en.wikipedia.org/wiki/Force-directed_graph_drawing#History? 
 
-**2 / Try different layouts? [layout from networkx](https://networkx.org/documentation/stable/reference/drawing.html) 
-
-Notebook activity: try the [draw_kamada_kawai](https://en.wikipedia.org/wiki/Force-directed_graph_drawing) layout
+Notebook activity: try the [draw_kamada_kawai](https://en.wikipedia.org/wiki/Force-directed_graph_drawing)  [layout from networkx](https://networkx.org/documentation/stable/reference/drawing.html) 
 - Lesson: layouts can make a difference
 
 
@@ -120,6 +119,7 @@ Remember the def of architecture: **"[...] modules, their properties, and the re
 Metrics can express these *"properties"*.
 
 
+
 ### Product metrics that can be aggregated from files to higher level abstractions 
 
 Almost anything. The only choice is: how do you aggregate? Do you sum? Do you average? It depends on the question you are asking.
@@ -157,40 +157,30 @@ Figure: Augmeting nodes and dependencies with metrics in ArgoUML packages.
 The PageRank algorithm that made Google famous tries to gauge the importance of a page in a network of pages based on the references pages make to each other. 
 
 ![](images/page_rank_example.png)
+Visual intuition about PageRank ranking (Image source: [spatial-lang.org](https://spatial-lang.org/pagerank)).
 
-The their paper, [Ranking software artifacts](http://scg.unibe.ch/archive/papers/Peri10bRankingSoftware.pdf), by Perin, Renggli, and Ressia applied the algorithm in order to attempt to detect the most relevant elements in a software system. 
+In the paper [Ranking software artifacts](http://scg.unibe.ch/archive/papers/Peri10bRankingSoftware.pdf) Perin et al. applied the PR algorithm in order to attempt to detect the most relevant elements in a software system.
 
-Consider trying it out in your project if you're interested in network analysis!
-
-`networkx` supports various methods of network analysis, e.g. [centrality](https://networkx.org/documentation/stable/reference/algorithms/centrality.html#degree), [HITS](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.hits_alg.hits.html), [pagerank](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.pagerank_alg.pagerank.html)
-
+*Note:* Consider trying it out in your project if you're interested in network analysis! It should not be that hard, the `networkx` package supports various methods of network analysis, e.g. [centrality](https://networkx.org/documentation/stable/reference/algorithms/centrality.html#degree), [HITS](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.hits_alg.hits.html), [pagerank](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.pagerank_alg.pagerank.html).
 
 
 ## Approach #4 - Automatic Clustering
 
-What if we did unsupervised learning? We could do hierarchical clustering, of the system, for example, and hope that the clusters are mapped on architectural components. 
-
-Example: [Interactive Exploration of Semantic Clusters](papers/Interactive_Exploration_of_Semantic_Clus.pdf) by Lungu et al. 
-
-![](images/interactive-semantic-clusters.png)
-
+What if we did unsupervised learning? We could do hierarchical clustering of the system for example. Then, we could hope that the clusters are mapped on architectural components. 
 
 Automatic clustering has been tried with 
    - coupling and cohesion metrics
    - natural language analysis
-   - ... 
+   - other types of similarity between programming units
 
 In all of the cases we still need human intervention to explore the result of the automatically detected clusters. 
 
+Case study: [Interactive Exploration of Semantic Clusters](papers/Interactive_Exploration_of_Semantic_Clus.pdf) by Lungu et al. 
+
+![](images/interactive-semantic-clusters.png)
 
 
 # Reflexion Models
-
-= an architectural viewpoint that indicates **where the source model and high-level model differ**
-
-1. Convergences
-1. Divergences
-1. Absences
 
 Introduced in [**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf) *Murphy et al.* which: 
 
@@ -237,42 +227,39 @@ Repeat
 Until “happy”
 ```
 
+### Definition 
+
+Reflection model = an architectural viewpoint that indicates **where the source model and high-level model differ**
+
+1. Convergences
+1. Divergences
+1. Absences
+
 
 
 
 # Personalizing your Project
 
-
-- Can you visualize also dependency metrics with networkx? E.g. a stronger dependency as a thicker arrow? 
-- Consider using `pyvis` instead of `networkx` -- it has much nicer visualizations!
-- Consider [exporting the data from networkx](https://networkx.github.io/documentation/stable/reference/drawing.html) into specialized graph visualization tools 
-- Compute size metrics, and map them on the nodes in your module view at the end of the [Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing) notebook
-
-
 **Advice: Start working on your project! Don't leave it all for the last moment!** 
 
+**Heuristic: sum total of your work on coding and analysis should be one month worth. The report should be split proportionally between the work that you did. If you did more coding describe your architecture; if you did more analysis, describe your results. **
 
+- Can you visualize also dependency metrics with networkx? E.g. a stronger dependency as a thicker arrow? 
+- For the aestheticians: consider using `pyvis` instead of `networkx` -- it has much nicer visualizations!
+- Consider [exporting the data from networkx](https://networkx.github.io/documentation/stable/reference/drawing.html) into specialized graph visualization tools (e.g. cytoscape, etc.)
+- Compute size metrics, and map them on the nodes in your module view
 
 
 ## To Think About
 
 - In which way does mapping metrics on visualizations help make sense of the data
 
-- Semi-automatic (~*automation with human in the loop*) solutions are always required in Architecture Reconstruction
+- Why are semi-automatic solutions (~*automation with human in the loop*) always required in Architecture Reconstruction?
 
-- The difference between the views recovered today and a hand-drawn UML diagram? 
-  - what we created today is always telling the truth (*live diagrams*)
-  - but, **maybe not all the truth?**
+- What is the difference between the views recovered today and a hand-drawn UML diagram or something drawn on the whiteboard? 
 
-##### Note: Importance of Understanding Dependencies in Architecture Reconstruction
+- How do you explain a recovered architectural view? Do you need to explain the role of the nodes? Should you also explain the reason for the existence of the dependencies between them? 
 
-AR helps us to *tell a story* about the system. 
+- Could we use ... LLMs?
 
-To tell a story one needs:
-  - subjects - the modules in the view
-  - actions - the dependencies in the view 
-
-![300](./images/top_three_dependencies.png)
-
-In your project aim to describe also the reason for the dependencies (at least the most essential ones)
-
+- Are there other abstractions that we didn't discuss about? What could they be? 
