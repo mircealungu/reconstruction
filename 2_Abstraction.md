@@ -56,18 +56,16 @@ Lesson: *layouts can also make a difference*
 
 ![600](images/symphony.png)
 
-Furthermore, it talks about how: 
 
-*"[...] domain knowledge is used to **define a map between the source and target view**."* 
+## Approach 0: Reflexion Models
 
+This approach uses *"[...] domain knowledge is used to **define a map between the source and target view**."* 
 
 > This activity may require either interviewing the system experts in order to formalize architecturally-relevant aspects not available in the implementation or to iteratively augment the source view by adding new concepts to the source viewpoint
 >
 > -- Symphony, 6.2
 
 
-
-## Approach 0: Reflexion Models
 
 Introduced in [**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf) *Murphy et al.* which: 
 
