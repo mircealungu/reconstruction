@@ -5,7 +5,8 @@ Course materials for the Architecture Reconstruction sessions from the Software 
 
 
 
-# Development
+# Development Notes
+
 ## Automatic generation of `.pdf` from `.md` for every chapter
 
 To enable the automatic generation of the pdf from .md for the lecture notes make sure to 
@@ -16,6 +17,8 @@ To enable the automatic generation of the pdf from .md for the lecture notes mak
 ```
 git config --local core.hooksPath ./git-hooks/
 ```
+
+Command adapted from a [SO answer](https://stackoverflow.com/a/54281447). 
 
 
 
