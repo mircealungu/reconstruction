@@ -39,7 +39,7 @@ Lesson: *filtering is a useful tool in architecture recovery.*
 
 Graph layout drawing is a [has a rich and old history](https://en.wikipedia.org/wiki/Force-directed_graph_drawing#History). 
 
-Interactive: try [alternative layouts from networkx](https://networkx.org/documentation/stable/reference/drawing.html) 
+Interactive: [Basic Abstraction: Alternative layouts with networkx](https://networkx.org/documentation/stable/reference/drawing.html) 
 
 Lesson: *layouts can also make a difference*
 
