@@ -30,7 +30,7 @@ The view shows dependencies to external modules. if goal is understanding *this 
 	- Discuss: how to we define *external* modules?  
 
 
-Interactive: [Try to filter out the non-system dependencies]([Basic Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). Does the graph look simpler?
+Interactive: [Basic Abstraction: Try to filter out the non-system dependencies](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). Does the graph look simpler?
 
 Lesson: *filtering is a useful tool in architecture recovery.*
 
