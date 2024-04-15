@@ -197,17 +197,20 @@ Cons:
 
 
 
+
+
+
 ## Approach #2: Using Metrics 
 
 A software [metric](https://www.javatpoint.com/software-engineering-software-metrics) is a **measure of software characteristics** which are measurable or countable
 
 Types of metrics:
-1. Product - measure the resulting product, e.g. source code
-2. Process - measure the process, e.g. frequency of change
+1. **Product** - measure the resulting product, e.g. source code
+2. **Process** - measure the process, e.g. frequency of change
 
 *So how is this a complementary tool?* 
 
-Remember the def of architecture: **"[...] modules, their properties, and the relationships between them"**
+Remember the def of architecture: **"[...] modules, their properties, and the relationships between them"**.
 
 Metrics can express these *"properties"*.
 
@@ -227,10 +230,17 @@ For **Modules**
 - **Size** 
 	- LOC - lines of code 
 	- NOM - number of methods
+	- ...
 
 For **Dependencies**
 - **Total count** of explicit low-level dependencies
 - **Number of distinct** explicit low-level dependencies 
+
+The way to use metrics:
+- GCM = goal - question - metric approach. 
+
+
+
 
 
 ### Augmenting Recovered Views with Metrics
@@ -247,7 +257,7 @@ Figure: Augmeting nodes and dependencies with metrics in ArgoUML packages.
 
 ## Approach #3: Detecting Essentials With Network Analysis
 
-The PageRank algorithm that made Google famous tries to gauge the importance of a page in a network of pages based on the references pages make to each other. 
+The `PageRank` algorithm that made Google famous tries to gauge the importance of a page in a network of pages based on the references pages make to each other. 
 
 ![](images/page_rank_example.png)
 Visual intuition about PageRank ranking (Image source: [spatial-lang.org](https://spatial-lang.org/pagerank)).
@@ -256,6 +266,8 @@ In the paper [Ranking software artifacts](http://scg.unibe.ch/archive/papers/Per
 
 *Note:* Consider trying it out in your project if you're interested in network analysis! It should not be that hard, the `networkx` package supports various methods of network analysis, e.g. [centrality](https://networkx.org/documentation/stable/reference/algorithms/centrality.html#degree), [HITS](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.hits_alg.hits.html), [pagerank](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.pagerank_alg.pagerank.html).
 
+*Note 2*: Maybe you want to do the inverse of the pagerank = otherwise util might become the most relevant! 
+
 
 ## Approach #4 - Automatic Clustering
 
@@ -263,12 +275,12 @@ What if we did unsupervised learning? We could do hierarchical clustering of the
 
 Automatic clustering has been tried with 
    - coupling and cohesion metrics
-   - natural language analysis
+   - natural language similarity between software documents
    - other types of similarity between programming units
 
 In all of the cases we still need human intervention to explore the result of the automatically detected clusters. 
 
-Case study: [Interactive Exploration of Semantic Clusters](papers/Interactive_Exploration_of_Semantic_Clus.pdf) by Lungu et al. 
+Case study: Hierarchical Clustering. [Interactive Exploration of Semantic Clusters](papers/Interactive_Exploration_of_Semantic_Clus.pdf) by Lungu et al. 
 
 ![](images/interactive-semantic-clusters.png)
 
@@ -303,7 +315,7 @@ Case study: [Interactive Exploration of Semantic Clusters](papers/Interactive_Ex
 
 - Do you have access to the developers such that you can recover a reflection model viewpoint of the system?
 
-- Can you get ArchLens to work? Would that be a good tool for generating views? 
+- Can you get [ArchLens](https://github.com/archlens/ArchLens), to work? Would that be a good tool for generating views? 
 
 **Advice: Start working on your project! Don't leave it all for the last moment!** 
 
