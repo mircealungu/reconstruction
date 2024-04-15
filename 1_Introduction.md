@@ -318,6 +318,7 @@ or,
 	- Understand the code
 	- Think about techniques for "abstracting" this information
 - Can you find equivalent off-the shelf tools?
+- Can you complete the implementation of the import extractor with the missing part? 
 
 ## Questions & Feedback
 - Use the anonymous [form](https://forms.gle/ADWfDZdKfPwdFG1D6)

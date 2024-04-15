@@ -8,77 +8,183 @@ mlun@itu.dk
 
 <a href="https://github.com/mircealungu/reconstruction">github.com/mircealungu/reconstruction</a>
 
-
-### The *source view* obtained last time
-
-It is beautiful, isn't it?
+### The *source view* obtained last time... 
+... is beautiful... isn't it?
 
 ![](images/all_dependencies_circular.png)
 
-- **System**: Zeeguu-API
+- **System**: [zeeguu/api](https://github.com/zeeguu/api) 
 - **Source View**: Modules & Dependencies
 - **Entities**: .py files in the project
 - **Relationships**: import statements between .py files
 
+(*Image from the [Basic Data Gathering](https://colab.research.google.com/drive/1oe_TV7936Zmmzbbgq8rzqFpxYPX7SQHP?usp=sharing) notebook*)
 
-## Refining the source view to simplify it?
+## What can we can do to simplify the source view?
 
-*Starting from the [Basic Data Gathering](https://colab.research.google.com/drive/1oe_TV7936Zmmzbbgq8rzqFpxYPX7SQHP?usp=sharing) notebook...*
  
-**1/ Add labels to the nodes. Do you see irellevant nodes?**
+**1/ Remove irrelevant nodes?**
+
+- the view shows dependencies to external modules. if goal is understanding *this system's structure* ... are they needed?
+	- Discuss: how to we define *external* modules?  
+
+- Notebook activity: [**Filter out the non-system dependencies]([Basic Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). Does the graph look better? 
+- Conclusion: filtering is a useful *tool* in AR
 
 
-- the view shows dependencies to external modules
-- if goal is understanding *this system's structure* ... are they needed?
+
+**2 / Try different layouts? [layout from networkx](https://networkx.org/documentation/stable/reference/drawing.html) 
+
+Notebook activity: try the [draw_kamada_kawai](https://en.wikipedia.org/wiki/Force-directed_graph_drawing) layout
+- Lesson: layouts can make a difference
 
 
-2/ **Filter out the non-system dependencies** *(approx. all that don't start with `zeeguu`)* **Does the graph look better?**
 
-Lesson: filtering is an important tool for AR
-
-
-**2 / Let's try another [layout from networkx](https://networkx.org/documentation/stable/reference/drawing.html) (e.g. [draw_kamada_kawai](https://en.wikipedia.org/wiki/Force-directed_graph_drawing)**). Can you spot  other irellevant modules?
-
-- tests are also not very relevant
-- Lesson: layouts are important 
-
-**3 / Filter out tests**. **Does the view look cleaner?** 
-
---
-
-*What else can we do here to simplify?*
 
 
 
 # Knowledge Inference / Abstraction
 
-
 [Symphony...](./papers/deursen-symphony.pdf) (Sec. 6.2): "The reconstructor creates the target view by ...
+
 - **condensing the low-level details ** of the source view, and 
 - **abstracting them** into architectural information.
+
 
 ![600](images/symphony.png)
 
 "[...] domain knowledge is used to **define a map between the source and target view**." 
 
-???
 
-> This activity may require either interviewing the system experts in order to formal- ize architecturally-relevant aspects not available in the im- plementation or to iteratively augment the source view by adding new concepts to the source viewpoint
+> This activity may require either interviewing the system experts in order to formal- ize architecturally-relevant aspects not available in the implementation or to iteratively augment the source view by adding new concepts to the source viewpoint
 >
 > -- Symphony, 6.2
 
 
 
-## Approach #1: Mapping Using Naming Conventions 
+## Approach #1: Using the Folder Hierarchy
+
+Hierarchies are powerful. We organize societies in them. And we organize software systems in them. 
+
+### Exemplifying with a few classes from ArgoUML
+
+Based on containment relationships we can: 
+1. Aggregate nodes
+2. Aggregate dependencies 
+
+The following image presents a few classes and packages from the FOSS project ArgoUML
+
+
+![](images/aggregating_dependencies_upwards.png)
+Figure shows that we can distinguish between
+1. **Explicit dependencies**
+	- method call
+	- import
+	- subclassing 
+2. **Implicit aggregated dependencies** (because there are other kinds of implicit dependencies we will see next time)
+
+### To Which Level Do we Aggregate? 
+
+Notebook: [Basic Abstraction: Exploring aggregation levels. ](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). 
+
+Conclusion: you can not know upfront to what level to aggregate. So it is good to be able to explore various levels. 
+
+It might be that different modules need to be explored at different levels. 
 
 
 
-[..] **if the mapping contains a rule about using naming conventions to combine classes into modules**, the resulting map lists each class and the module to which it belongs."
+### Pros and Cons of Folder-Based Aggregation
+
+Pros: 
+1. Works for many languages & systems
+2. Can be used in a MSc thesis :) (e.g. [topic1](https://github.com/mircealungu/student-projects/issues/4), [topic2](https://github.com/mircealungu/student-projects/issues/35)) 
+
+Cons:
+- Some languages don't use the folder structure the same way: C# has folders vary independent from namespaces. There you have to analyze namespaces. 
+- COBOL does not have a folder structure at all. Smalltalk also does not. 
 
 
 
-### Reflexion Model
+## Approach #2: Using Metrics 
 
+A software [metric](https://www.javatpoint.com/software-engineering-software-metrics) is a **measure of software characteristics** which are measurable or countable
+
+Types of metrics:
+1. Product - measure the resulting product, e.g. source code
+2. Process - measure the process, e.g. frequency of change
+
+*So how is this a complementary tool?* 
+
+Remember the def of architecture: **"[...] modules, their properties, and the relationships between them"**
+
+Metrics can express these *"properties"*.
+
+
+### Product metrics that can be aggregated from files to higher level abstractions 
+
+Almost anything. The only choice is: how do you aggregate? Do you sum? Do you average? It depends on the question you are asking.
+
+For **Files/Methods**
+- **Cyclomatic Complexity** ([wiki](https://en.wikipedia.org/wiki/Cyclomatic_complexity)) 
+	- number of linearly independent code paths through source code (functions of the number of branches)
+	- often used in quality: too much complexity is a bad thing
+	- hidden partially by polymorphism
+
+For **Modules**
+- **Size** 
+	- LOC - lines of code 
+	- NOM - number of methods
+
+For **Dependencies**
+- **Total count** of explicit low-level dependencies
+- **Number of distinct** explicit low-level dependencies 
+
+
+### Augmenting Recovered Views with Metrics
+
+One approach would be an interactive top-down exploration approach combined with metrics is  Softwarenaut ([video](https://vimeo.com/62767181), [paper](https://core.ac.uk/download/pdf/33045731.pdf)) described in  [Evolutionary and Collaborative Software Architecture Recovery with Softwarenaut,](https://core.ac.uk/download/pdf/33045731.pdf)  by Lungu et al. 
+
+![400](./images/polymetric_view_of_argouml.png)
+Figure: Augmeting nodes and dependencies with metrics in ArgoUML packages.
+
+
+
+
+
+
+## Approach #3: Detecting Essentials With Network Analysis
+
+The PageRank algorithm that made Google famous tries to gauge the importance of a page in a network of pages based on the references pages make to each other. 
+
+![](images/page_rank_example.png)
+
+The their paper, [Ranking software artifacts](http://scg.unibe.ch/archive/papers/Peri10bRankingSoftware.pdf), by Perin, Renggli, and Ressia applied the algorithm in order to attempt to detect the most relevant elements in a software system. 
+
+Consider trying it out in your project if you're interested in network analysis!
+
+`networkx` supports various methods of network analysis, e.g. [centrality](https://networkx.org/documentation/stable/reference/algorithms/centrality.html#degree), [HITS](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.hits_alg.hits.html), [pagerank](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.pagerank_alg.pagerank.html)
+
+
+
+## Approach #4 - Automatic Clustering
+
+What if we did unsupervised learning? We could do hierarchical clustering, of the system, for example, and hope that the clusters are mapped on architectural components. 
+
+Example: [Interactive Exploration of Semantic Clusters](papers/Interactive_Exploration_of_Semantic_Clus.pdf) by Lungu et al. 
+
+![](images/interactive-semantic-clusters.png)
+
+
+Automatic clustering has been tried with 
+   - coupling and cohesion metrics
+   - natural language analysis
+   - ... 
+
+In all of the cases we still need human intervention to explore the result of the automatically detected clusters. 
+
+
+
+# Reflexion Models
 
 = an architectural viewpoint that indicates **where the source model and high-level model differ**
 
@@ -86,25 +192,9 @@ Lesson: filtering is an important tool for AR
 1. Divergences
 1. Absences
 
-Obtaining it is an **iterative process**
+Introduced in [**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf) *Murphy et al.* which: 
 
-    Repeat
-    1. Define/Update high-level model of interest
-    2. Extract a source model
-    3. Define/Update declarative mapping between high- level model and source model
-    4. Reflexion model computed by system
-    5. Interpret the software reflexion model.
-    Until “happy”
-
-From:  [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf)
-
-
-
-#### Case Study
-
-In [**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf) *Murphy et al.*: 
 - Ask Linux maintainers to 
-
 	1. draw dependencies between subsystems (*as-expected* architecture)
 	2. provide mappings from file names to subsystems
 
@@ -135,125 +225,46 @@ From:  [Software Reflexion Models: Bridging the Gap...](./papers/murphy-reflexio
 
 ![](./images/reflexion_model_comparison.png)
 
-From:  [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf)
+Obtaining a reflection model is an **iterative process**: 
+
+```
+Repeat
+	1. Define/Update high-level model of interest
+	2. Extract a source model
+	3. Define/Update declarative mapping between high- level model and source model
+	4. Reflexion model computed by system
+	5. Interpret the software reflexion model.
+Until “happy”
+```
 
 
 
 
+# Personalizing your Project
 
 
-## Approach #2: Using the Folder Hierarchy for Aggregation
-
-Developers hierarchically organize files in folders. *Let us use that!* 
-1. Aggregate nodes
-2. Aggregate dependencies
-3. Show the aggregated dependencies & nodes
-
-Advantages
-1. Works for most languages & most systems!
-2. Can be used in a MSc thesis :) (e.g. [topic1](https://github.com/mircealungu/student-projects/issues/4), [topic2](https://github.com/mircealungu/student-projects/issues/35)) 
+- Can you visualize also dependency metrics with networkx? E.g. a stronger dependency as a thicker arrow? 
+- Consider using `pyvis` instead of `networkx` -- it has much nicer visualizations!
+- Consider [exporting the data from networkx](https://networkx.github.io/documentation/stable/reference/drawing.html) into specialized graph visualization tools 
+- Compute size metrics, and map them on the nodes in your module view at the end of the [Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing) notebook
 
 
-
-### Example from ArgoUML
-
-
-![](images/aggregating_dependencies_upwards.png)
-
-Two types of dependencies:
-1. Explicit
-2. Implicit
-
-From: [Evolutionary and Collaborative Software Architecture Recovery with Softwarenaut,](https://core.ac.uk/download/pdf/33045731.pdf) by Lungu et al.
-
-
-
-### Basic Implementation in Python
-
-Code: [Basic Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing)
+**Advice: Start working on your project! Don't leave it all for the last moment!** 
 
 
 
 
-## Approach #3: Using Metrics for Abstraction
+## To Think About
 
-A software [metric](https://www.javatpoint.com/software-engineering-software-metrics) is a **measure of software characteristics** which are measurable or countable
+- In which way does mapping metrics on visualizations help make sense of the data
 
-Types of metrics:
-1. Product - measure the resulting product, e.g. source code
-2. Process - measure the process, e.g. frequency of change
+- Semi-automatic (~*automation with human in the loop*) solutions are always required in Architecture Reconstruction
 
-Q: *So how is this a complementary tool?*
+- The difference between the views recovered today and a hand-drawn UML diagram? 
+  - what we created today is always telling the truth (*live diagrams*)
+  - but, **maybe not all the truth?**
 
---
-
-Remember the def of architecture: **"[...] modules, their properties, and the relationships between them"**
-
---
-
-*A: Metrics can express these "properties".*
-
-
-
-
-### Product metrics
-
-For **Files/Methods**
-- **Cyclomatic Complexity** (aggregated from file level)
-	- CYCLO - Cyclomatic Complexity ([wiki](https://en.wikipedia.org/wiki/Cyclomatic_complexity)) 
-	    - number of linearly independent code paths through source code (functions of the number of branches)
-	    - often used in quality: too much complexity is a bad thing
-	    - hidden partially by polymorphism
-
-For **Modules**
-- **Size** (Aggregated from file level)
-	- LOC - lines of code 
-	- NOM - number of methods
-
-For **Dependencies**
-- **Total count** of explicit low-level dependencies
-- **Number of distinct** explicit low-level dependencies 
-
-
-
-
-### Augmenting Recovered Views with Metrics
-
-Useful in top-down interactive exploration, e.g. Softwarenaut ([video](https://vimeo.com/62767181), [paper](https://core.ac.uk/download/pdf/33045731.pdf))
-
-![400](./images/polymetric_view_of_argouml.png)
-
-e.g., Augmeting nodes and dependencies with metrics in ArgoUML packages with a *polymetric view* 
-
-
-Coding Assignment: Compute size metrics, and map them on the nodes in your module view at the end of the [Abstraction](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing) notebook
-
-
-
-
-## Approach #4 (research!): Keep Only the Most Essential Elements Based on Network Analysis
-<img src="images/first_cluster.png" style="float:right" />
-
-e.g. Paper: [Ranking software artifacts](http://scg.unibe.ch/archive/papers/Peri10bRankingSoftware.pdf). by Perin, Renggli, and Ressia
-- Use the PageRank algorithm of Google
-- Abstracts by filtering out the less relevant nodes
-
-Consider trying it out in your project if you're interested in network analysis!
-
-`networkx` supports various methods of network analysis, e.g. [centrality](https://networkx.org/documentation/stable/reference/algorithms/centrality.html#degree), [HITS](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.hits_alg.hits.html), [pagerank](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.pagerank_alg.pagerank.html)
-
-???
-
-- Automatic Clustering
-     - has been tried with 
-       - coupling cohesion
-       - natural language analysis
-     - even in the case of clustering we still need human intervention
-
-
-
-
-## Note: Importance of Understanding Dependencies in Architecture Reconstruction
+##### Note: Importance of Understanding Dependencies in Architecture Reconstruction
 
 AR helps us to *tell a story* about the system. 
 
@@ -264,29 +275,4 @@ To tell a story one needs:
 ![300](./images/top_three_dependencies.png)
 
 In your project aim to describe also the reason for the dependencies (at least the most essential ones)
-
-
-
-
-## To Think About
-
-- Mapping metrics on visualizations helps make sense of the data
-
-- Semi-automatic (~*automation with human in the loop*) solutions are always required in Architecture Reconstruction
-
-- The difference between the views recovered today and a hand-drawn UML diagram? 
-  - what we created today is always telling the truth (*live diagrams*)
-  - but, **maybe not all the truth?**
-
-
-
-
-# Personalizing your Project
-
-- Can you complete the implementation of the import extractor with the missing part? 
-- Can you visualize also dependency metrics with networkx? E.g. a stronger dependency as a thicker arrow? 
-- Consider using `pyvis` instead of `networkx` -- it has much nicer visualizations!
-- Consider [exporting the data from networkx](https://networkx.github.io/documentation/stable/reference/drawing.html) into specialized graph visualization tools 
-
-**To Do: start working on your project! Don't leave it all for the last moment!** 
 
