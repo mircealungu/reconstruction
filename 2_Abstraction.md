@@ -2,11 +2,11 @@ IT University of Copenhagen
 
 # Software Architecture Reconstruction: Abstraction
 
-Mircea Lungu
-
-mlun@itu.dk
-
 <a href="https://github.com/mircealungu/reconstruction">github.com/mircealungu/reconstruction</a>
+
+
+Mircea Lungu
+mlun@itu.dk
 
 ### The *source view* obtained last time... 
 ... is beautiful... isn't it?
