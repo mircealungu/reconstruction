@@ -53,7 +53,7 @@ Some examples:
 
 
 
-## The Technical-World Context
+## The Technical Context
 
 Think about the `npm` ecosystem. Every day you can execute `npm audit` in your React-based web application to find out that a dozen of the packages you depend on have new versions. Do you upgrade? Do you stay like this for a while? What's the best strategy for managing this portfolio of dependencies?
 
