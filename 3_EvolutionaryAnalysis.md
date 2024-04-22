@@ -138,12 +138,19 @@ Evolutionary Hotspots -- **an architectural viewpoint that highlights those code
 Notebook: [Computing Evolutionary Hotspots with PyDriller](https://colab.research.google.com/drive/1T4Hj12uD6h5Ody4ietooe5nW-yGFCoX9?usp=sharing)
 
 Challenges when computing an Evolutionary Hotspots viewpoint: 
+
 - Taking into account developer styles
 	- the micro-commits developer vs. the large chunk commiter
-- Removing irellevant files that change frequently (`README.md`, or `LICENSE.md`)
+- Removing irrelevant files that change frequently (`README.md`, or `LICENSE.md`)
 	- Combine with static complexity metrics
 	- Manual investigation
 - Selecting the appropriate time-interval for the analysis 
 	- Weighting towards recency (discarding past changes more)
 - Tracking file renames over the course of a system's history
 	- Sometimes git loses track of file history: e.g. if you rename and make changes at the same time
+
+
+
+# For Your Projects
+
+Consider enriching your analysis with information about the evolution of the analyzed system.
