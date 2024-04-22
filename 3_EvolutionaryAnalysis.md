@@ -76,7 +76,7 @@ One of the benefits of the widespread adoption of tools like git is the fact tha
 
 # Deriving AR-Relevant Information From VCS 
 
-VCS = version control system
+There are multiple kinds of information that might be relevant for the architecture reconstruction process that can be recovered from the version control system (VCS). Several are presented in this section. 
 
 ## Code Ownership: which developers are responsible with which parts of the code?
 
