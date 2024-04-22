@@ -91,8 +91,10 @@ npx -y git-truck-beta@latest
 
 *Why is it named git-truck?* 
 
-The [truck-factor](https://www.agileadvice.com/2005/05/15/agilemanagement/truck-factor/) 
+The [truck-factor](https://www.agileadvice.com/2005/05/15/agilemanagement/truck-factor/) concept. 
+
 To think about
+
 - Is a truck factor good if high or if low?
 - How could you devise a team-strategy or company strategy to improve it?
 
