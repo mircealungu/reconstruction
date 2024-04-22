@@ -154,29 +154,26 @@ However, the information in the git log could be useful for architecture recover
 
 > *"The value of anything is proportional to time invested in it."* (M. Lungu)
 
-### Concept: Code Churn
+
+Evolutionary Hotspots -- **an architectural viewpoint that highlights those code entities where most commits are made** 
+
+Notebook: [Computing Evolutionary Hotspots with PyDriller](https://colab.research.google.com/drive/1T4Hj12uD6h5Ody4ietooe5nW-yGFCoX9?usp=sharing)
+
+
+### Related Concept: Code Churn
  
  = a metric that indicates how often a given piece of code—e.g., a file, a class, a function—gets edited. 
  
  - process metric (*as opposed to? do you remember the alternate concept? *)
  - can be detected with **language independent analysis** (which is good for polyglot systems)
 
-Why would places in the system with high-code churn be relevant? 
-
-Practically:
-
+**Why** would places in the system with high-code churn be **relevant**? 
 - places in the code with high code churn are likely to be most important parts of the code
 - studies observe correlation between [*code churn*](https://linearb.io/blog/what-is-code-churn/) and complexity metrics
 - high *code churn* predicts bugs better than size 
 - it's likely that they'll require more effort in the future (e.g. yesterday's weather [Girba et al.])
 
-### Evolutionary Hotspots Viewpoint
-
-Evolutionary Hotspots -- **an architectural viewpoint that highlights those code entities where most commits are made** 
-
-Notebook: [Computing Evolutionary Hotspots with PyDriller](https://colab.research.google.com/drive/1T4Hj12uD6h5Ody4ietooe5nW-yGFCoX9?usp=sharing)
-
-Challenges when computing an Evolutionary Hotspots viewpoint: 
+**Challenges** when computing an Evolutionary Hotspots viewpoint: 
 
 - Taking into account developer styles
 	- the micro-commits developer vs. the large chunk commiter
@@ -187,7 +184,7 @@ Challenges when computing an Evolutionary Hotspots viewpoint:
 	- Weighting towards recency (discarding past changes more)
 - Tracking file renames over the course of a system's history
 	- Sometimes git loses track of file history: e.g. if you rename and make changes at the same time
-
+- 
 
 
 # Bonus:  Estimating Code Ownership Based on Git Repositories
