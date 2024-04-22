@@ -6,7 +6,6 @@ IT University of Copenhagen
 
 Mircea Lungu (mlun@itu.dk) 
 
-
 <a href="https://github.com/mircealungu/reconstruction">github.com/mircealungu/reconstruction</a>
 
 
@@ -103,6 +102,9 @@ To think about
 
 This is called logical coupling. When two entities always change together, even if there is no explicit dependency between them, this information can be inferred from the version control.
 
+To Do: 
+- read the paper
+- be able to discuss: what are the thresholds that are involved in defining logical coupling?
 
 ## Documentation: fine-grained based on `git` comments
 
