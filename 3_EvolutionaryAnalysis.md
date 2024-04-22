@@ -117,10 +117,13 @@ However, defining the concept is a challenge, because it's after all a matter of
 
 Pros
 
-- language-independent
-- can even detect multi-lingual dependencies
+- language-independent method 
+- can even detect dependencies between parts of the code that are not written in the same language
+- can detect dependencies that are indirect 
+
 
 Cons
+
 - only a small part of the dependencies can be detected this way
 
 
@@ -134,11 +137,11 @@ Cons
 
 One of the beautiful insights I recently had is the importance of the git messages associated to commits as documentation. 
 
-Indeed, even if there is no separate documentation, well described commits can serve as an evolving documentation for a software system. Look at the following commit comment, from linux, which documents a (+9, -4) change: 
+Indeed, even if there is no separate documentation, well described commits can serve as an evolving documentation for a software system. Look at the following commit comment, from linux, which documents a (+9, -4) change. How many of us are able to write such detailed changes?
 
 ![](images/commit-comment-in-linux.png)
 
-How many of us are able to write such detailed changes. Think about the wealth of relevant information one can find in the architecture 
+However, the information in the git log can be useful for architecture recovery, only if the developers wrote meaningful messages. 
 
 ## Evolutionary Hotspots: the parts of the system have been most changed over time
 
