@@ -18,17 +18,18 @@ Mircea Lungu (mlun@itu.dk)
 # Why *Must* Software Systems Evolve? 
 
 > An e-type program that is used in a real-world environment must change, or become progressively less useful in that environment. 
+> 
 > -- M. Lehman, *The Law of Continuing Change*
 
 
-In the terminology of Lehman, "e" stands for embedded. 
+In the terminology of Lehman, the "e" in *e-type* stands for *embedded*. 
 - an e-type system is *embedded* in the real world
-- and since the world changes, so the system must change
+- since the world changes, the system must change too.
 
-There are actually two parts of the "world" where changes can impact a given software system. The real world context and the technical context. 
+There are actually two parts of the "world" where changes can impact a given software system. The social context and the technical context. 
 
 
-## The *Real-World Context*
+## The *Social Context*
 
 To think about: *Do you have good examples of systems that had to change because the real world changed around them?* 
 
@@ -47,15 +48,6 @@ Some examples:
 - *... ?* 
 
 
-To think about: 
-
-- *What other kinds of systems are there then? Can you think about another type?* Are there programs that are not impacted by the change in the world around them? 
-
-
-
-Examples of such systems are few: a chess engine, an algorithm. It seems that one could even argue that this is the difference between algorithms and software systems: algorithms don't have to change with the world, while systems have to. 
-
-
 
 
 
@@ -71,7 +63,22 @@ Developing software is a little bit like living in Wonderland where the Red Quee
 
 
 
+## There exist also non-e-type systems, but they are not as interesting
+
+To think about: *What other kinds of systems are there then? Can you think about another type?* *Are there programs that are not impacted by the change in the world around them?* 
+
+Examples of such systems
+	- a chess engine
+	- a red-black tree balancing algorthm
+	- ... 
+
+
+
+
+It seems that one could even argue that this is the difference between algorithms and software systems: algorithms don't have to change with the world, while systems have to. 
+
 # Software Evolution
+
 
 **Software evolution is the continual development of a piece of software after its initial release to address changing stakeholder requirements**.
 
@@ -80,7 +87,7 @@ Observations:
 - Nowadays evolution is the preferred term because it highlights the fact that a software system is never *finished*
 
 
-## Does Architecture Evolve? 
+# Does Architecture Evolve? 
 
 From this POV, the **architecture metaphor might not be the best** - because we normally think about architecture as unchanging. 
 
@@ -95,9 +102,7 @@ I personally think a ***garden* would have been a better metaphor** for a softwa
 
 
 
-# Deriving AR-Relevant Information From VCS 
-
-## Version Repositories Can Help Re-trace Evolution
+# Version Repositories Can Help Re-trace Evolution
 
 One of the benefits of the widespread adoption of tools like git is the fact that the meta-data captured in the version control system captures relevant information about the evolution of the system. 
 
