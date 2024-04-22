@@ -26,12 +26,14 @@ In the terminology of Lehman, the "e" in *e-type* stands for *embedded*.
 - an e-type system is *embedded* in the real world
 - since the world changes, the system must change too.
 
-There are actually two parts of the "world" where changes can impact a given software system. The social context and the technical context. 
+There are actually two parts of the "world" where changes can impact a given software system. The context of use and the technical context. 
 
 
-## The *Social Context*
+## The *Context of Use*
 
-To think about: *Do you have good examples of systems that had to change because the real world changed around them?* 
+To think about: 
+
+- *Do you have good examples of systems that had to change because the real world changed around them?* 
 
 
 
