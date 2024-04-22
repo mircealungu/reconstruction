@@ -74,8 +74,9 @@ I personally think a ***garden* would have been a better metaphor** for a softwa
 One of the benefits of the widespread adoption of tools like git is the fact that the meta-data captured in the version control system captures relevant information about the evolution of the system. 
 
 
-# Types of Evolutionary Information Relevant for AR available in VCS 
+# Deriving AR-Relevant Information From VCS 
 
+VCS = version control system
 
 ## Code Ownership: which developers are responsible with which parts of the code?
 
