@@ -20,31 +20,55 @@ Mircea Lungu (mlun@itu.dk)
 > An e-type program that is used in a real-world environment must change, or become progressively less useful in that environment. 
 > -- M. Lehman, *The Law of Continuing Change*
 
-*What might be referring to when he talks about an e-type system?*
 
 In the terminology of Lehman, "e" stands for embedded. 
 - an e-type system is *embedded* in the real world
 - and since the world changes, so the system must change
 
-## The *Real-world Context* Changes
+There are actually two parts of the "world" where changes can impact a given software system. The real world context and the technical context. 
 
-To think about: *Do you have good examples of systems that had to change because the real world changed?* Some examples: 
+
+## The *Real-World Context*
+
+To think about: *Do you have good examples of systems that had to change because the real world changed around them?* 
+
+
+
+
+
+
+
+
+
+
+
+Some examples: 
 - the software that computes taxes in Denmark
-- more? 
+- *... ?* 
 
 
-To think about: *What other kinds of systems are there then? Can you think about another type?* Are there programs that are not impacted by the change in the world around them? 
+To think about: 
 
-It seems that one could even argue that this is the difference between algorithms and software systems: algorithms don't have to change with the world, while systems have to. 
+- *What other kinds of systems are there then? Can you think about another type?* Are there programs that are not impacted by the change in the world around them? 
 
 
-## The Technical Ecosystem Changes
+
+Examples of such systems are few: a chess engine, an algorithm. It seems that one could even argue that this is the difference between algorithms and software systems: algorithms don't have to change with the world, while systems have to. 
+
+
+
+
+
+
+
+## The Technical-World Context
 
 Think about the `npm` ecosystem. Every day you can execute `npm audit` in your React-based web application to find out that a dozen of the packages you depend on have new versions. Do you upgrade? Do you stay like this for a while? What's the best strategy for managing this portfolio of dependencies?
 
-But this is not only about the `npm` ecosystem. The same situations emerges when a developer builds a system on top of a programming language. Does their code still depend on Python 2.7? Some of the libraries their code depends on, might have dropped support for that version of Python. So they either upgrade, or they are left behind. If a developer des not want to be left behind, they have to keep up with all their *upstream* dependencies. 
+But this is not only about the `npm` ecosystem. The same situations emerges when a developer builds a system on top of other libraries, and even programming languages change. If one is not keeping up with the evolution of their programming language, their code will sooner or later stop working. How could this be? Some of the libraries their code depends on, might have dropped support for that version of the language. So they either upgrade, or they are left behind. If a developer des not want to be left behind, they have to keep up with all their upstream dependencies. 
 
 Developing software is a little bit like living in Wonderland where the Red Queen is telling Alice: "*In this place you have to run to stay in one place*". 
+
 
 
 # Software Evolution
@@ -68,63 +92,60 @@ This is where Stewart Brand -- one of my favorite non-fiction authors -- comes t
 I personally think a ***garden* would have been a better metaphor** for a software system. You must constantly tend to your garden if you want to maintain it. 
 
 
+
+
+
+# Deriving AR-Relevant Information From VCS 
+
 ## Version Repositories Can Help Re-trace Evolution
 
 One of the benefits of the widespread adoption of tools like git is the fact that the meta-data captured in the version control system captures relevant information about the evolution of the system. 
 
 
-# Deriving AR-Relevant Information From VCS 
-
-There are multiple kinds of information that might be relevant for the architecture reconstruction process that can be recovered from the version control system (VCS). Several are presented in this section. 
-
-## Code Ownership: which developers are responsible with which parts of the code?
-
-This can help find an expert for a given problem.
-
-One example: [Git-Truck](https://github.com/git-truck/git-truck)
-
-```
-git clone git@github.com:zeeguu/api.git
-npx -y git-truck-beta@latest
-```
-
-*Why is it named git-truck?* 
-
-The [truck-factor](https://www.agileadvice.com/2005/05/15/agilemanagement/truck-factor/) concept. 
-
-To think about
-
-- Is a truck factor good if high or if low?
-- How could you devise a team-strategy or company strategy to improve it?
+There are **multiple kinds of information that might be relevant for the architecture reconstruction** process that can be recovered from the version control system (VCS). Several are presented in this section. 
 
 
 ## Logical Coupling: the parts of the system that always change together 
 
-This is called logical coupling. When two entities always change together, even if there is no explicit dependency between them, this information can be inferred from the version control.
+This is called logical coupling. When two entities always change together, even if there is no explicit dependency between them, this information can be inferred from the version control. 
+
+Pros
+
+- language-independent
+- can even detect multi-lingual dependencies
+
+Cons
+- only a small part of the dependencies can be detected this way
+
 
 To Do: 
 - read the paper
 - be able to discuss: what are the thresholds that are involved in defining logical coupling?
 
-## Documentation: fine-grained based on `git` comments
+
+
+
+
+
+## Documentation: fine-grained, based on `git` comments
 
 One of the beautiful insights I recently had is the importance of the git messages associated to commits as documentation. 
 
-Indeed, even if there is no separate documentation, well described commits can serve as an evolving documentation for a software system. 
+Indeed, even if there is no separate documentation, well described commits can serve as an evolving documentation for a software system. Look at the following commit comment, from linux, which documents a (+9, -4) change: 
 
+![](images/commit-comment-in-linux.png)
 
-
+How many of us are able to write such detailed changes. Think about the wealth of relevant information one can find in the architecture 
 
 ## Evolutionary Hotspots: the parts of the system have been most changed over time
 
 > *"The value of anything is proportional to time invested in it."* (M. Lungu)
 
-### Process Metric: Code Churn
+### Concept: Code Churn
  
  = a metric that indicates how often a given piece of code—e.g., a file, a class, a function—gets edited. 
  
- - process metric (*as opposed to?*)
- - can suggest relevance for the architecture (*in wjhich way?*)
+ - process metric (*as opposed to? do you remember the alternate concept? *)
  - can be detected with **language independent analysis** (which is good for polyglot systems)
 
 Why would places in the system with high-code churn be relevant? 
@@ -156,6 +177,30 @@ Challenges when computing an Evolutionary Hotspots viewpoint:
 
 
 
+# Bonus:  Estimating Code Ownership Based on Git Repositories
+
+This can help find an expert for a given problem and might also provide an estimate of the maintainability related risks of a given project. 
+
+Compare the following two visualizations. Which of the two projects would you consider to be more maintainable, everything else being equal?
+
+![](images/truck-supabase.png)
+
+![](images/pokebase.png)
+
+The images are generated with [Git-Truck](https://github.com/git-truck/git-truck) -- a git repository visualization tool developed here at ITU. To try it out on your own, use: 
+
+```
+git clone git@github.com:zeeguu/api.git
+npx -y git-truck-beta@latest
+```
+
+Why is the tool defined this way? Because of the **truck factor**: "*the number of people on your team that have to be hit by a truck (or quit) before the project is in serious trouble*". [*A Novel Approach for Estimating Truck Factors*](https://arxiv.org/pdf/1604.06766.pdf), by Avelino et al. discusses some of the challenges of formally defining the concept. 
+
+
+
+
 # For Your Projects
 
 Consider enriching your analysis with information about the evolution of the analyzed system.
+
+To think about: what if you could replay the history of a system from the beginning but only showing those files that made it to the end. So project the beginnings through the perspective of the endings. Would that be a useful way of focusing on the most relevant aspects of the system? 
