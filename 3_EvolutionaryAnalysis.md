@@ -225,7 +225,20 @@ npx -y git-truck@duck
 
 # For Your Projects
 
-Consider enriching your analysis with information about the evolution of the analyzed system.
+## Generate Evolution Hotspots From Your Case Study System
 
-To think about: what if you could replay the history of a system from the beginning but only showing those files that made it to the end. So project the beginnings through the perspective of the endings. Would that be a useful way of focusing on the most relevant aspects of the system? 
+- Extract multiple complementary module views from your case study system
+- Ensure that your layouts are readable - limit the number of nodes in a view, use a different layout in networkx, or use a different library than networkx
+- Augment each of the previously obtained module views by mapping the above-computed churn metric on the color of a given node
+
+
+# To Think About 
+
+What if you could replay the history of a system from the beginning but only showing those files that made it to the end. So project the beginnings through the perspective of the endings. Would that be a useful way of focusing on the most relevant aspects of the system? 
+
+# References
+
+[Detection of Logical Coupling Based on Product Release History](https://plg.uwaterloo.ca/~migod/846/papers/gall-coupling.pdf), by  Harald Gall, Karin Hajek, and Mehdi Jazayeri. 
+
+[Laws of Software Evolution Revisited](http://labs.cs.upt.ro/labs/acs/html/resources/Lehman-2.pdf). M. M. Lehman
 
