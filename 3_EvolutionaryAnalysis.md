@@ -141,7 +141,14 @@ Indeed, even if there is no separate documentation, well described commits can s
 
 ![](images/commit-comment-in-linux.png)
 
-However, the information in the git log can be useful for architecture recovery, only if the developers wrote meaningful messages. 
+However, the information in the git log could be useful for architecture recovery, only if the developers wrote meaningful messages. 
+
+
+
+
+
+
+
 
 ## Evolutionary Hotspots: the parts of the system have been most changed over time
 
