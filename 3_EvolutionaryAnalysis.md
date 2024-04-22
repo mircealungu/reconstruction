@@ -104,7 +104,7 @@ To think about
 This is called logical coupling. When two entities always change together, even if there is no explicit dependency between them, this information can be inferred from the version control.
 
 
-## Temporally-distributed documentation
+## Documentation: fine-grained based on `git` comments
 
 One of the beautiful insights I recently had is the importance of the git messages associated to commits as documentation. 
 
