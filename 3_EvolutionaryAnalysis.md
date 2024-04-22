@@ -47,7 +47,8 @@ To think about:
 
 Some examples: 
 - the software that computes taxes in Denmark
-- *... ?* 
+- all the websites in Europe once GDPR came into being
+- etc. 
 
 
 
