@@ -125,9 +125,11 @@ Indeed, even if there is no separate documentation, well described commits can s
 Why would places in the system with high-code churn be relevant? 
 
 Practically:
+
+- places in the code with high code churn are likely to be most important parts of the code
 - studies observe correlation between [*code churn*](https://linearb.io/blog/what-is-code-churn/) and complexity metrics
-- it's likely that they'll require more effort in the future (e.g. yesterday's weather [Girba et al.])
 - high *code churn* predicts bugs better than size 
+- it's likely that they'll require more effort in the future (e.g. yesterday's weather [Girba et al.])
 
 ### Evolutionary Hotspots Viewpoint
 
