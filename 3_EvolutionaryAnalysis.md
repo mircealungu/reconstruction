@@ -107,7 +107,13 @@ There are **multiple kinds of information that might be relevant for the archite
 
 ## Logical Coupling: the parts of the system that always change together 
 
-This is called logical coupling. When two entities always change together, even if there is no explicit dependency between them, this information can be inferred from the version control. 
+When two entities always change together, even if there is no explicit dependency between them, we call that between them there is logical coupling. 
+
+This information can be inferred from the version control. The concept was introduced in 1998 in [a paper](https://plg.uwaterloo.ca/~migod/846/papers/gall-coupling.pdf) by Gall et al. has become quite popular in the meantime. Adam Tornhill has a tool that computes it and wrote a book about many of the concepts discussed in this course. Other tools that compute it exist. 
+
+However, defining the concept is a challenge, because it's after all a matter of selecting thresholds and constants: 
+- how many changes should two entities have together before we call them coupled?
+- what percentage of changes can be not *together* while still allowing us to consider them coupled?
 
 Pros
 
@@ -118,9 +124,6 @@ Cons
 - only a small part of the dependencies can be detected this way
 
 
-To Do: 
-- read the paper
-- be able to discuss: what are the thresholds that are involved in defining logical coupling?
 
 
 
@@ -197,6 +200,15 @@ npx -y git-truck-beta@latest
 Why is the tool defined this way? Because of the **truck factor**: "*the number of people on your team that have to be hit by a truck (or quit) before the project is in serious trouble*". [*A Novel Approach for Estimating Truck Factors*](https://arxiv.org/pdf/1604.06766.pdf), by Avelino et al. discusses some of the challenges of formally defining the concept. 
 
 
+#### Looking for volunteers: Thomas HK is looking for companies to get feedback on the new time-selection feature in Git-Truck 
+
+To try the feature try: 
+
+```
+npx -y git-truck@duck
+```
+
+
 
 
 # For Your Projects
@@ -204,3 +216,4 @@ Why is the tool defined this way? Because of the **truck factor**: "*the number 
 Consider enriching your analysis with information about the evolution of the analyzed system.
 
 To think about: what if you could replay the history of a system from the beginning but only showing those files that made it to the end. So project the beginnings through the perspective of the endings. Would that be a useful way of focusing on the most relevant aspects of the system? 
+
