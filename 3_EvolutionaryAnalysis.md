@@ -2,7 +2,7 @@ IT University of Copenhagen
 
 #### Software Architecture Reconstruction
 
-# III: Evolutionary Analysis
+# III: Evolutionary Analysis for Architecture Recovery
 
 Mircea Lungu (mlun@itu.dk) 
 
@@ -22,9 +22,7 @@ Mircea Lungu (mlun@itu.dk)
 > -- M. Lehman, *The Law of Continuing Change*
 
 
-In the terminology of Lehman, the "e" in *e-type* stands for *embedded*. 
-- an e-type system is *embedded* in the real world
-- since the world changes, the system must change too.
+In the terminology of Lehman, the "e" in *e-type* stands for *embedded* in the real world. Since the world changes, the system must change too.
 
 There are actually two parts of the "world" where changes can impact a given software system. The context of use and the technical context. 
 
@@ -115,7 +113,7 @@ There are **multiple kinds of information that might be relevant for the archite
 
 ## Logical Coupling: the parts of the system that always change together 
 
-When two entities always change together, even if there is no explicit dependency between them, we call that between them there is logical coupling. 
+When two entities *frequently* change together, even if there is no explicit dependency between them, we call that between them there is **logical coupling**. 
 
 This information can be inferred from the version control. The concept was introduced in 1998 in [a paper](https://plg.uwaterloo.ca/~migod/846/papers/gall-coupling.pdf) by Gall et al. has become quite popular in the meantime. Adam Tornhill has a tool that computes it and wrote a book about many of the concepts discussed in this course. Other tools that compute it exist. 
 
@@ -158,41 +156,42 @@ However, the information in the git log could be useful for architecture recover
 
 
 
-## Evolutionary Hotspots: the parts of the system have been most changed over time
+## Churn: highlighting the parts of the system are most changed over time
 
-> *"The value of anything is proportional to time invested in it."* (M. Lungu)
-
-
-Evolutionary Hotspots -- **an architectural viewpoint that highlights those code entities where most commits are made** 
-
-Notebook: [Computing Evolutionary Hotspots with PyDriller](https://colab.research.google.com/drive/1T4Hj12uD6h5Ody4ietooe5nW-yGFCoX9?usp=sharing)
+> *"The value of anything is proportional to integral over time of quality that you invest in it."* (M. Lungu)
 
 
-### Related Concept: Code Churn
- 
- = a metric that indicates how often a given piece of code—e.g., a file, a class, a function—gets edited. 
+ Churn = a metric that indicates how often a given piece of code—e.g., a file, a class, a function—gets edited. 
  
  - process metric (*as opposed to? do you remember the alternate concept? *)
  - can be detected with **language independent analysis** (which is good for polyglot systems)
 
 **Why** would places in the system with high-code churn be **relevant**? 
-- places in the code with high code churn are likely to be most important parts of the code
+- are likely to be most important parts of the code
 - studies observe correlation between [*code churn*](https://linearb.io/blog/what-is-code-churn/) and complexity metrics
 - high *code churn* predicts bugs better than size 
 - it's likely that they'll require more effort in the future (e.g. yesterday's weather [Girba et al.])
 
-**Challenges** when computing an Evolutionary Hotspots viewpoint: 
 
-- Taking into account developer styles
-	- the micro-commits developer vs. the large chunk commiter
-- Removing irrelevant files that change frequently (`README.md`, or `LICENSE.md`)
+Evolutionary Hotspots -- **an architectural viewpoint that highlights those code entities with high churn**.
+
+Notebook: [Abstracting Churn Along the Module Hierarchy in Python](https://colab.research.google.com/drive/1T4Hj12uD6h5Ody4ietooe5nW-yGFCoX9?usp=sharing)
+
+
+
+**Keep in mind** when using churn in architecture recovery
+
+1. Caveat: one must take into account developer styles, e.g. the micro-commits developer vs. the large chunk committer
+	- you could use LOC instead of # number of commits;
+	- what could the problems with this be? 
+2. Removing irrelevant files that change frequently (`README.md`, or `LICENSE.md`)
 	- Combine with static complexity metrics
 	- Manual investigation
-- Selecting the appropriate time-interval for the analysis 
+3. Selecting the appropriate time-interval for the analysis 
 	- Weighting towards recency (discarding past changes more)
-- Tracking file renames over the course of a system's history
+4. Tracking file renames over the course of a system's history
 	- Sometimes git loses track of file history: e.g. if you rename and make changes at the same time
-- 
+
 
 
 # Bonus:  Estimating Code Ownership Based on Git Repositories
@@ -228,11 +227,11 @@ npx -y git-truck@duck
 
 # For Your Projects
 
-## Generate Evolution Hotspots From Your Case Study System
+Consider adding an evolutionary analysis component to your project. 
+- churn metrics
+- dead-code detection?
+- developer-collaboration analysis
 
-- Extract multiple complementary module views from your case study system
-- Ensure that your layouts are readable - limit the number of nodes in a view, use a different layout in networkx, or use a different library than networkx
-- Augment each of the previously obtained module views by mapping the above-computed churn metric on the color of a given node
 
 
 # To Think About 
