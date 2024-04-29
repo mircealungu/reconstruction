@@ -295,9 +295,12 @@ Extract dynamic dependencies from your case study system.
 
 # Bibliography
 
-More on Function Wrappers:
+[What architects should know about reverse engineering and reengineering](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=05981602215076b7492b87a8a1f7157dcc9c2196) R. Koschke, In 5th Working IEEE/IFIP Conference on Software Architecture (WICSA'05)_(pp. 4-10). IEEE.
 
+
+# Further Reading
+
+Function Wrappers
 - https://wiki.python.org/moin/FunctionWrappers
-
 - Wrappers to the Rescue: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.18.6550&rep=rep1&type=pdf
 
