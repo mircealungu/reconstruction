@@ -259,6 +259,7 @@ Helpful practices that make running code easier:
 ## Limitations of Dynamic Analysis  
 
 - Limited by execution coverage
+	> Dynamic analysis is related to testing and shares the same disadvantages. All the conclusions you draw are valid only with respect to the given input. When it comes to architecture, however, we are generally in- terested in all possible behavior. (Koshcke, What architects should know about reverse engineering and reengineering )
 
 - A program does not reach an execution point... => no data (e.g. Word but user never uses the print option)
 
@@ -291,11 +292,11 @@ Extract dynamic dependencies from your case study system.
 
 
 
-
+ 
 
 # Bibliography
 
-[What architects should know about reverse engineering and reengineering](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=05981602215076b7492b87a8a1f7157dcc9c2196) R. Koschke, In 5th Working IEEE/IFIP Conference on Software Architecture (WICSA'05)_(pp. 4-10). IEEE.
+[1]) [What architects should know about reverse engineering and reengineering](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=05981602215076b7492b87a8a1f7157dcc9c2196) R. Koschke, In 5th Working IEEE/IFIP Conference on Software Architecture (WICSA'05)_(pp. 4-10). IEEE.
 
 
 # Further Reading
