@@ -58,7 +58,7 @@ Adding log statements in the program can help collect traces of its execution.
 
 The benefits of this approach are: 
 
-- allows surgical precision - adding log statements only where relevant (e.g. if I want to investigate the calls between two particular classes)
+- allows surgical precision - adding log statements only where relevant (e.g. if I want to investigate the calls between two particular classes, adding logs only there)
 
 - technology is straightforward to use: `console.log` vs `print`
 
@@ -67,6 +67,20 @@ The limitations of this approach:
 - invasive - implies changing the program
 
 - usually we want to log extensively so there is a lot of manual work needed
+
+#### In distributed systems tracking logs across systems is challenging
+
+The solution is a combination of:
+
+##### Centralized logging
+Logging for distributed systems, e.g. services and micro-services, requires the collection all the logs in one place. 
+
+##### Tracking the order of the log messages
+
+A challenge is tracking the order of the logs across systems 
+- the simplest way is to add times in front of every logging statement
+- the more involved approach is *distributed tracing* - tracking requests as they propagate through multiple microservices by adding a unique *request ID* or *trace ID* to every message
+
 
 
 
@@ -272,9 +286,6 @@ Extract dynamic dependencies from your case study system.
 - can you create a wrapper that traces method calls (both the caller and the callee?)
 
 - fully qualified names of the caller method
-
-- can you run it on your case study? (ping me if you need help with Python)
-
 
 
 
