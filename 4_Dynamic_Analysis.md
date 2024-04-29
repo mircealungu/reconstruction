@@ -40,6 +40,7 @@ Dynamic analysis is a **technique of program analysis** that consists of **instr
 
 Dynamic analysis collects **execution traces** = records of the sequence of actions that happened during an execution. 
 
+
 Think again about the previous *dead code detection* scenario. 
 
 > If we had information from the execution of the system we could exclude some candidates if we see that they are used at runtime.  
@@ -78,7 +79,7 @@ Logging for distributed systems, e.g. services and micro-services, requires the 
 ##### Tracking the order of the log messages
 
 A challenge is tracking the order of the logs across systems 
-- the simplest way is to add times in front of every logging statement
+- the simplest way is to **add timestamps in every logging statement**
 - the more involved approach is *distributed tracing* - tracking requests as they propagate through multiple microservices by adding a unique *request ID* or *trace ID* to every message
 
 
@@ -112,7 +113,7 @@ def methods_in_class(cls):
 	return [
 		(name, object) 
 		for (name, object) 
-		in cls.__dict__.items() 
+			in cls.__dict__.items() 
 		if hasattr(object, '__call__')]
 ```
 
@@ -123,16 +124,24 @@ def methods_in_class(cls):
 
 E.g. replacing all the methods in a class with decorators that print call information before executing the original behavior in Python can be done in a few steps:
 
+
+
+
 ###### Define a decorator function 
 
 That decorator could simply log the function call before delegating to the function, e.g. 
 ```Python
 def log_decorator( function ):
 	def decorated( *args, **kwargs ):
-		print (f'Calling: {function}')
+		print (f'I have been called: {function}')
 		return function( *args,**kwargs )
 	return decorated
 ```
+
+
+
+
+
 
 ###### Define a function to decorate all the methods in a class
 
@@ -165,14 +174,15 @@ In the example above we used introspection to figure out the methods in a class.
 ```python
 import inspect
 
-def caller(): callee()
+def caller(): 
+	callee()
 
 def callee():
 	print(inspect.stack()[1].function)
 
 caller()
 ```
-Challenge: can you plug this solution in the `log_decorator` for a more complete execution trace?
+**Challenge**: can you plug this solution in the `log_decorator` for a more complete execution trace?
 
 ##### Function Wrappers
 
@@ -187,7 +197,6 @@ In the previous section, the `log_decorator` is what is called a **function wrap
 - while the *wrapper* is *fully* compatible with the wrapped function so it can be used instead
 
 ###### Advantages of Wrappers
-- allow **precise control** of instrumentation scope 
 - make it **easy to automate** (e.g. you could iterate through all the modules and all the classes in Zeeguu using reflection, and deploy a wrapper on every function)
 
 ###### Disadvantages of Wrappers
@@ -259,7 +268,8 @@ Helpful practices that make running code easier:
 ## Limitations of Dynamic Analysis  
 
 - Limited by execution coverage
-	> Dynamic analysis is related to testing and shares the same disadvantages. All the conclusions you draw are valid only with respect to the given input. When it comes to architecture, however, we are generally in- terested in all possible behavior. (Koshcke, What architects should know about reverse engineering and reengineering )
+	> Dynamic analysis is related to testing and shares the same disadvantages. 
+	> All the conclusions you draw are valid only with respect to the given input. When it comes to architecture, however, we are generally interested in all possible behavior. (Koshcke, ***What architects should know about reverse engineering and reengineering*** )
 
 - A program does not reach an execution point... => no data (e.g. Word but user never uses the print option)
 
@@ -297,6 +307,8 @@ Extract dynamic dependencies from your case study system.
 # Bibliography
 
 [1]) [What architects should know about reverse engineering and reengineering](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=05981602215076b7492b87a8a1f7157dcc9c2196) R. Koschke, In 5th Working IEEE/IFIP Conference on Software Architecture (WICSA'05)_(pp. 4-10). IEEE.
+
+
 
 
 # Further Reading
