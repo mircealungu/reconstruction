@@ -69,14 +69,16 @@ The limitations of this approach:
 
 - usually we want to log extensively so there is a lot of manual work needed
 
-### In distributed systems tracking logs across systems is challenging
+### Tracking logs in distributed systems is challenging
 
-The solution is a combination of:
+Why do we care? Because everybody and their dog jumped on micro-services. 
 
-##### Centralized logging
+The solution for logging in the context of a distributed system is a combination of techniques listed below:
+
+#### Centralized logging
 Logging for distributed systems, e.g. services and micro-services, requires the collection all the logs in one place. 
 
-##### Tracking the order of the log messages
+#### Tracking the order of the log messages
 
 A challenge is tracking the order of the logs across systems 
 - the simplest way is to **add timestamps in every logging statement**
