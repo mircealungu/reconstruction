@@ -1,6 +1,6 @@
 # Reconstruction IV: Dynamic Analysis
 
-In the previous sessions, we have looked at the source code, we have looked at history, but we have now, to face the elephant in the room: we *can not not look* at the *running system itself*. 
+In the previous sessions, we have looked at the source code, we have looked at history, and we saw that interesting information is available there. However, we have now to face the elephant in the room: the *running system itself*. We can not *not look* at it in our attempts to understand the system's architecture, even if, this is going to be the most challenging aspect.
 
 There are several ways in which we can do this:
 - add ad-hoc logging statements to the system 
