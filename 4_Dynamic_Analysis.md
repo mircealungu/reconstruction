@@ -1,6 +1,6 @@
 # Reconstruction IV: Dynamic Analysis
 
-We've looked at the source code, we've looked at history, we can not *not look at the running system*. 
+In the previous sessions, we have looked at the source code, we have looked at history, but we have now, to face the elephant in the room: we *can not not look* at the *running system itself*. 
 
 There are several ways in which we can do this:
 - add ad-hoc logging statements to the system 
