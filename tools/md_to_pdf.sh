@@ -4,6 +4,6 @@ filename="${1%.md}"
 
 # Convert Markdown to PDF using Pandoc
 echo pandoc "$1" -o "${filename}.pdf" --number-sections
-pandoc "$1" -o "${filename}.pdf"
+pandoc "$1" -o "${filename}.pdf"  --number-sections
 
 echo $0
