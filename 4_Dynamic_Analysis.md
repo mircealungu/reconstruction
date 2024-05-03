@@ -47,13 +47,13 @@ Think again about the previous *dead code detection* scenario.
 
 
 
-## How To Instrument Systems for Analysis?
+# How To Instrument Systems for Analysis?
 
 The key is **instrumenting the system** = modifying the system such that we can extract information from runtime. 
 
 There are multiple such methods. We'll discuss three here: 
 
-### Logging 
+## Logging 
 
 Adding log statements in the program can help collect traces of its execution.
 
@@ -69,7 +69,7 @@ The limitations of this approach:
 
 - usually we want to log extensively so there is a lot of manual work needed
 
-#### In distributed systems tracking logs across systems is challenging
+### In distributed systems tracking logs across systems is challenging
 
 The solution is a combination of:
 
@@ -88,11 +88,11 @@ A challenge is tracking the order of the logs across systems
 
 
 
-### Dynamic Behavior Modification
+## Dynamic Behavior Modification
 
 What if we could modify every method call to log it's call. Then we could re-create a sequence diagram of the whole execution of a program! 
 
-#### Using Reflection
+### Using Reflection
 
 **Reflection** = the ability of a program to manipulate as data something representing the state of the program during its own execution
 
@@ -100,7 +100,7 @@ In some languages it's easier to do (e.g. Ruby, Python) than in others (Java).
 
 There are two kinds of reflection:
 
-##### **Introspection** 
+#### **Introspection** 
 = the ability for a program to observe and therefore reason about its own state. 
 
 E.g. listing the methods in a class in Python
@@ -119,7 +119,7 @@ def methods_in_class(cls):
 
 
 
-##### **Intercession** 
+#### **Intercession** 
 = is the ability for a program to modify its own execution state or alter its own interpretation or meaning. 
 
 E.g. replacing all the methods in a class with decorators that print call information before executing the original behavior in Python can be done in a few steps:
@@ -127,7 +127,7 @@ E.g. replacing all the methods in a class with decorators that print call inform
 
 
 
-###### Define a decorator function 
+##### Define a decorator function 
 
 That decorator could simply log the function call before delegating to the function, e.g. 
 ```Python
@@ -143,7 +143,7 @@ def log_decorator( function ):
 
 
 
-###### Define a function to decorate all the methods in a class
+##### Define a function to decorate all the methods in a class
 
 This can be done by reusing our `methods_in_class` function from above: 
 ```Python
@@ -153,7 +153,7 @@ def decorate_methods( cls, decorator ):
 		setattr( cls, name, decorator ( method ))
 ```
 
-###### Do the actual decoration
+##### Do the actual decoration
 
 ```python
 from zeeguu.core.model import User
@@ -167,7 +167,7 @@ from sqlalchemy.orm.query import Query
 decorate_methods(Query, log_decorator)
 
 ```
-###### Using introspection to detect the calling site
+##### Using introspection to detect the calling site
 
 In the example above we used introspection to figure out the methods in a class. We can also use introspection to query the current state of the Python call stack with the help of the `inspect` package. 
 
@@ -184,7 +184,7 @@ caller()
 ```
 **Challenge**: can you plug this solution in the `log_decorator` for a more complete execution trace?
 
-##### Function Wrappers
+#### Function Wrappers
 
 In the previous section, the `log_decorator` is what is called a **function wrapper** == a pattern inspired from the Decorator design pattern:
 
@@ -196,21 +196,22 @@ In the previous section, the `log_decorator` is what is called a **function wrap
 
 - while the *wrapper* is *fully* compatible with the wrapped function so it can be used instead
 
-###### Advantages of Wrappers
+##### Advantages of Wrappers
 - make it **easy to automate** (e.g. you could iterate through all the modules and all the classes in Zeeguu using reflection, and deploy a wrapper on every function)
 
-###### Disadvantages of Wrappers
+##### Disadvantages of Wrappers
 - they introduce an **overhead** (but then, so do all code instrumentation techniques)
 - they require to be deployed on **live** objects 
 - must be in the same process as the instrumented code
 
-###### Application of Function Wrappers
+##### Application of Function Wrappers
 
+A performance monitor implemented at RUG and ITU across several BSc and MSc theses: 
 https://github.com/flask-dashboard/Flask-MonitoringDashboard
 
 
 
-#### Runtime Instrumentation
+### Runtime Instrumentation
 
 = a technique that modifies the generated code. 
 
@@ -227,7 +228,7 @@ Advantage:
 - JVM bytecode instrumentation works for multiple languages
 
  
-### Network Traffic Analysis
+## Network Traffic Analysis
 
 Not considered as part of *traditional dynamic analysis* but becomes more relevant 
 
@@ -239,9 +240,9 @@ Read: https://danlebrero.com/2017/04/06/documenting-your-architecture-wireshark-
 
 **Note**: An approach like this would be a great starting point for a thesis. 
 
-## How to Run the Instrumented Systems?
+# How to Run the Instrumented Systems?
 
-### Running the code itself might pose challenges 
+## Running the code itself might pose challenges 
 
 - Configuration
 
@@ -257,7 +258,7 @@ Helpful practices that make running code easier:
 - containerization
 - infrastructure as code
 
-### ## Which Scenarios to Run from the System?
+## ## Which Scenarios to Run from the System?
 
 - Run the unit tests if they exist
 - Exercise "features"
@@ -265,7 +266,7 @@ Helpful practices that make running code easier:
 > A feature is a realized functional requirement of a system. [...] an observable unit of behavior of a system triggered by the user [Eisenbarth et al., 2003].
 
   
-## Limitations of Dynamic Analysis  
+# Limitations of Dynamic Analysis  
 
 - Limited by execution coverage
 	> Dynamic analysis is related to testing and shares the same disadvantages. 
@@ -278,7 +279,7 @@ Helpful practices that make running code easier:
 - Can result in a large amount of of data (a few seconds of execution can result in GB of data for complex systems)
 
 
- # Benefits for Architecture Recovery
+ # Benefits of DA for Architecture Recovery
 
 Dynamic analysis is an essential **complement for static analysis**  for dependency extraction. 
 
