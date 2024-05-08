@@ -169,6 +169,7 @@ AR could be a possible first step in reengineering
 # How To Do Architecture Reconstruction?
 
 [Symphony: View-Driven Software Architecture Reconstruction](https://ipa.win.tue.nl/archive/springdays2005/Deursen1.pdf)
+
 - Classical, principled way
 - View-driven approach
 - Distinguishes between three kinds of *views*
