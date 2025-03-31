@@ -15,6 +15,7 @@ This and following three lectures
  - Are material that you don't find in the SAiP textbook
  - Is going to be very practical
  - Will give you the chance to do a bit of coding for program analysis
+	 - If you can't code (we've had this in the past) there is a way for you too
  - The basis for your individual report
  - Have inspired several of your colleagues to choose thesis projects
  
@@ -22,7 +23,10 @@ This and following three lectures
 Feedback & Questions
 - [Anonymous form](https://forms.gle/ADWfDZdKfPwdFG1D6)
 - Email: mlun@itu.dk
+
+Lecture source: 
 - PR on the  [.md version of the slides on GH](https://github.com/mircealungu/itu-architecture-reconstruction/blob/master/lectures/Reconstruction_1_Lecture_10.md) if you see bugs
+- <a href="https://github.com/mircealungu/reconstruction">github.com/mircealungu/reconstruction</a>
 
 
 
@@ -31,18 +35,32 @@ Feedback & Questions
 - Onboarding on a new system
 - Buying a software company
 - Having to do 
-	- a risk assessment for security
 	- an architectural evaluation
+	- a risk assessment for security
+
+Riddle:  What would be nice to have in all these circumstances but we almost never have?
+
+Helper: What is the software artifact that you are not guaranteed to have, not even when paying 50B for a company?
 
 
-Q:  What would be nice to have in all these circumstances but we almost never have?
 
-Hint: Even paying 50B for a company does not guarantee that you get this particular artefact...? 
+
 
 
 
 
 ## An up-to-date architectural diagram 
+
+
+
+
+
+
+
+
+
+
+
 
 ![](images/twitter_arch_recovered.png)
 [link to original tweet](https://twitter.com/elonmusk/status/1593899029531803649)
@@ -60,18 +78,22 @@ Have you seen architectural documentation for every system?
 
 ## Why does architectural documentation not always exist and is not up to date?
 
- - Hard to maintain 
 
-- Sometimes that's not a priority at all - you're a startup that needs to show that it's viable
-
-- It requires a better and more general understanding of the system than just coding -> not everybody can even do it
+Incentives
+- Sometimes that's not a priority at all 
+	- you're a startup that needs to show that the idea is viable. And then you never find the time. 
 
 - Maybe you're designing your own product and nobody to ask you to do it
 
- - Link (traceability ) between architecture and code is not easy to establish
-
  - Often there is no perceived value for the customer (or more likely, no clear immediate value)
 
+
+Difficulty
+
+ - Traceability (link) between architecture and code is not easy to establish
+- It requires a better and more general understanding of the system than just coding -> not everybody can  do it
+
+ - Hard to maintain - especially when they are in .ppt or .png  
  - Because developers make decisions and changes 
 	 - that are not aligned with the original vision => **[architectural drift](https://youtu.be/hExflmcBSc4?t=14)**
 	 - that go against prescriptive architecture => **[architectural erosion](https://youtu.be/hExflmcBSc4?t=70)**
@@ -79,7 +101,7 @@ Have you seen architectural documentation for every system?
 
 
 
-## Architecture Erosion Example
+### Architecture Erosion Example
 ![](images/adjacent_connector_.png)
 
 What could be the cause of erosion here?
@@ -92,26 +114,23 @@ Why would it be a problem?
 ## How to Keep Architectural Documentation up to Date?
 
 1 / **Enforcing architectural constraints** 
-- special DSLs and tools for architecture constraints definition (e.g. [Dictō](https://scg.unibe.ch/archive/papers/Cara14b-Dicto.pdf)) (docker-compose?  infrastructure?)
-- type system?
-- some are implemented as Unit Tests  (e.g. [ArchUnit](https://www.archunit.org/use-cases))
-
-How to integrate? 
-- pre-commit hooks? 
-- CI/CD
-- IDE
+- Type systems -- too low-level
+- Special tools for architecture constraints definition
+	- DSL - domain specific language (e.g. [Dictō](https://scg.unibe.ch/archive/papers/Cara14b-Dicto.pdf)) 
+	- tools that take inspiration from unit testing  (e.g. [ArchUnit](https://www.archunit.org/use-cases))
+	- How to integrate these tools? 
+		- CI/CD
+		- Pre-commit hooks
+		- IDE
+- Declarative architecture: docker compose, swarm stack specifications,  infrastructure-as-code specifications, etc.
 
 --
 
 2 / **Generating architectural diagrams from code**
-- as opposed to drawing them in Powerpoint
-- we'll see techniques for doing this
-- no sufficiently good tools for this 
+- As opposed to *drawing them in Powerpoint*
+- No great tools for this - often too much low-level noise
+- The focus of: **reconstructing the Architecture**
 
---
-
-3 / **Reconstructing the Architecture**
-- and ideally follow up with one of the previous two
 
 
 
@@ -134,7 +153,7 @@ a Process-Oriented Taxonomy](https://rmod.inria.fr/archives/papers/Duca09c-TSE-S
 
 ## Reverse Engineering
 
-**(def.)** the process of analyzing a subject system to identify the system’s components and their interrelationships and create representations of the system in another form or at a higher level of abstraction. (Demeyer et al., [Object Oriented Reengineering Patterns](http://scg.unibe.ch/download/oorp/OORP.pdf), Chapter 1.2)
+**(def.)** the **process** of analyzing a subject system to **identify** the system’s **components** and their **interrelationships** and create representations of the system [...] at a **higher level of abstraction**. (Demeyer et al., [Object Oriented Reengineering Patterns](http://scg.unibe.ch/download/oorp/OORP.pdf), Chapter 1.2)
 
 Focus on 
 - components 
@@ -170,11 +189,11 @@ AR could be a possible first step in reengineering
 - View-driven approach
 - Distinguishes between three kinds of *views*
     1. **Source** 
-	     - view extracted directly from artifacts of a system
+	     - view represents directly artifacts of a system
 	     - not necessarily architectural (e.g. see later example)
     2. **Target**  
 	     - describes architecture-as-implemented
-	     - any of the 3+1 views
+	     - any of the (first three from the) 3+1 views
     3. **Hypothetical** 
 	     - architecture-as-designed
 	     - existing documentation
@@ -208,7 +227,7 @@ AR could be a possible first step in reengineering
 
 ### Execution: Data gathering
  - Collecting and extracting low-level **source views**
- - Can involve a multitude of sources
+ - Can involve a multitude of sources even besides source code (e.g., git repo, runtime information)
  
 ![](images/symphony.png)
 
@@ -260,17 +279,18 @@ Or, *why source viewpoints are not necessarily architectural?*
 - **Recover the architecture of an existing system**
 
 - Document the outcome in an **individual report**
+	- the target reader is a developer, who needs to take over that system and maintain it
 	- brief (not more than 3 -- 5 pages)
 	- do not explain to us what Symphony does in the report; you assume it's done
 	- focus on your results
-	- the target reader is a developer, who needs to take over that system and maintain it
+
 
 
 
 ## Case-Study Systems
 
 1. The Zeeguu Project 
-	- [Online Deployment](https://zeeguu.com) (invite code: zeeguu-usability)
+	- [zeeguu.org](https://zeeguu.com) (invite code: zeeguu-preview)
 	- Code:
 		- Python Backend: [Zeeguu-API](https://github.com/zeeguu/API)
 		- React Frontend: [Zeeguu-Web](https://github.com/zeeguu/web) 
@@ -298,9 +318,11 @@ or,
 - Are important for recovery
 
 - **If you can program**, then this is your chance to be coding **analysis tools** over the upcoming lectures
-  - you can still code as a team! you only have to write the analysis on your own
+	  - you can still code as a team! you only have to write the analysis on your own
+	  - you don't have to use collab
 
 - **If you can't program**, then you'll have to find third party tools (the time the programming ones spend on programming, you'll be spending on finding third party tools) 
+
 
 
 
@@ -309,10 +331,9 @@ or,
   
 ## Reading
 - [Symphony: View-Driven Software Architecture Reconstruction](https://ipa.win.tue.nl/archive/springdays2005/Deursen1.pdf)
-- [Demeyer et al., Object Oriented Reengineering Patterns](http://scg.unibe.ch/download/oorp/OORP.pdf) (Chapter 1.2)
-  
+
+
 ## Individual Project
-- [Look at individual project description](https://docs.google.com/document/d/10bTyUS4ZocReS3j2AxHak_-rBh_Yv_0NM6XDQrt0YkY/edit?usp=sharing)  - you'll understand it better after the next week
 - Start looking for a case study that you would like to analyze
 
 
@@ -321,8 +342,15 @@ or,
 	- Understand the code
 	- Apply it on your own case study if you already have one
 	- Can you complete the implementation of the import extractor with the missing part? 
+		- (consider using an AST parser to extract more precise dependencies)
+		- what if an import is not at the beginning of the line?
 
 
 ## Questions & Feedback
 - Use the anonymous [form](https://forms.gle/ADWfDZdKfPwdFG1D6)
-- Or the forum if it's of general interest
+- Or on Discord if it's of general interest
+
+
+## Further Reference
+- [Demeyer et al., Object Oriented Reengineering Patterns](http://scg.unibe.ch/download/oorp/OORP.pdf) (Chapter 1.2)
+  
