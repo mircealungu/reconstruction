@@ -1,3 +1,4 @@
+
 IT University of Copenhagen
 
 
@@ -9,24 +10,6 @@ Mircea Lungu
 
 
 
-## Meta
-
-This and following three lectures
- - Are material that you don't find in the SAiP textbook
- - Is going to be very practical
- - Will give you the chance to do a bit of coding for program analysis
-	 - If you can't code (we've had this in the past) there is a way for you too
- - The basis for your individual report
- - Have inspired several of your colleagues to choose thesis projects
- 
- 
-Feedback & Questions
-- [Anonymous form](https://forms.gle/ADWfDZdKfPwdFG1D6)
-- Email: mlun@itu.dk
-
-Lecture source: 
-- PR on the  [.md version of the slides on GH](https://github.com/mircealungu/itu-architecture-reconstruction/blob/master/lectures/Reconstruction_1_Lecture_10.md) if you see bugs
-- <a href="https://github.com/mircealungu/reconstruction">github.com/mircealungu/reconstruction</a>
 
 
 

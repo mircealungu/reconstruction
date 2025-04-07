@@ -1,17 +1,10 @@
-IT University of Copenhagen
+# The view obtained at the end of the last lecture...
 
-# Software Architecture Reconstruction: Abstraction
+... reflects reality,
+... conveys the message that software is complex 
+... could find a place in a modern art museum
+... but is not architectural
 
-<a href="https://github.com/mircealungu/reconstruction">github.com/mircealungu/reconstruction</a>
-
-
-Mircea Lungu
-mlun@itu.dk
-
-
-### The *source view* obtained last time... 
-
-... is beautiful... isn't it?
 
 ![](images/all_dependencies_circular.png)
 
@@ -22,31 +15,40 @@ mlun@itu.dk
 
 (*Image from the [Basic Data Gathering](https://colab.research.google.com/drive/1oe_TV7936Zmmzbbgq8rzqFpxYPX7SQHP?usp=sharing) notebook*)
 
-## What can we can do to simplify the source view?
 
-### 1. Remove irrelevant nodes
+## We can try to simplify it
+
+There are several ways in which we can simplify the complex graph above: 
+### 1. Filtering nodes that are irrelevant
 
 The view shows dependencies to external modules. if goal is understanding *this system's structure* ... are they needed?
 	- Discuss: how to we define *external* modules?  
 
 
-Interactive: [Basic Abstraction: Try to filter out the non-system dependencies](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). Does the graph look simpler?
+Interactive: [Basic Abstraction: Filtering out non-system dependencies](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). Does the graph look simpler?
 
-Lesson: *filtering is a useful tool in architecture recovery.*
+**Lesson**: *filtering is an extremely useful tool in architecture recovery.*
 
 
-### 2. Try different layouts
+### 2. Using more advanced graph layouts
 
 Graph layout drawing is a [has a rich and old history](https://en.wikipedia.org/wiki/Force-directed_graph_drawing#History). 
 
 Interactive: [Basic Abstraction: Alternative layouts with networkx](https://networkx.org/documentation/stable/reference/drawing.html) 
 
-Lesson: *layouts can also make a difference*
+**Lesson**: *Advanced graph layouts can  be useful when looking at graphs but their benefits are limited; a layout can do much with a graph that is too dense and too large*. 
 
 
+### Simplification is not sufficient
+
+The above two methods can help but a little bit. 
+
+It will be even less so in more complex systems. 
+
+The solution is *abstraction*. 
 
 
-# Knowledge Inference / Abstraction
+# Abstraction in Architectural Reconstruction
 
 [Symphony...](./papers/deursen-symphony.pdf), when talking about knowledge inference (Sec. 6.2) mentions: 
 
@@ -58,7 +60,12 @@ Lesson: *layouts can also make a difference*
 ![600](images/symphony.png)
 
 
-## Approach 0: Reflexion Models
+But how can we abstract this low-level source view that we have obtained? 
+
+
+## Approach #1: Aggregating Entities and Relationships
+
+### Motivational Case Study: Reflexion Models
 
 This approach uses *"[...] domain knowledge is used to **define a map between the source and target view**."* 
 
@@ -67,29 +74,29 @@ This approach uses *"[...] domain knowledge is used to **define a map between th
 > -- Symphony, 6.2
 
 
-
-Introduced in [**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf) *Murphy et al.* which: 
+Idea introduced in [**Software Reflexion Models: Bridging the Gap between Design and Implementation**](./papers/murphy-reflexion.pdf) *Murphy et al.* which: 
 
 - Ask Linux maintainers to 
-	1. draw dependencies between subsystems (*as-expected* architecture)
-	2. provide mappings from file names to subsystems
+	1. provide mappings from file names to subsystems
+	2. draw dependencies between subsystems (*as-expected* architecture)
+
 
 - Recover the *[as-implemented](https://youtu.be/E6N8TuqPU6o?t=30)* *module view*
 
 - Compare the *as-implemented* architecture with the *as-expected* architecture 
 
 
-### Step 1.a. Maintainers draw dependencies between subsystems
+#### Step 1.a. Maintainers draw dependencies between subsystems
 
 ![Maintainer-drawn subsystem dependencies](./images/reflexion_model_hypothesis.png)
 
 Note: All images in this section are from the [Software Reflexion Models: Bridging the Gap ...](./papers/murphy-reflexion.pdf) paper. 
 
-### Step 1.b. Maintainers provide mappings from file names to subsystems
+#### Step 1.b. Maintainers provide mappings from file names to subsystems
 
 ![](images/reflexion_model_mappings.png)
 
-### Step 2. Comparing the As-Implemented and the As-Expected Dependencies
+#### Step 2. Comparing the As-Implemented and the As-Expected Dependencies
 
 ![](./images/reflexion_model_comparison.png)
 
@@ -106,7 +113,7 @@ Repeat
 Until “happy”
 ```
 
-### Definition 
+#### Definition 
 
 Reflection model = (an ***architectural viewpoint*** that) indicates **where the source model and high-level model differ**
 
@@ -118,13 +125,13 @@ Reflection model = (an ***architectural viewpoint*** that) indicates **where the
 
 
 
-## Approach #1: Using the Folder Hierarchy
-
 Hierarchies are powerful. We organize societies in them. And we organize software systems in them. 
 
-### Exemplifying with a few classes from ArgoUML
+### Aggregating Along the Folder Hierarchy
 
-Based on containment relationships we can: 
+#### Aggregating both nodes and dependencies
+
+Based on folder containment relationships we can: 
 1. Aggregate nodes
 2. Aggregate dependencies 
 
@@ -132,6 +139,7 @@ The following image presents a few classes and packages from the FOSS project Ar
 
 
 ![](images/aggregating_dependencies_upwards.png)
+
 Figure shows that we can distinguish between
 1. **Explicit dependencies**
 	- method call
@@ -139,26 +147,15 @@ Figure shows that we can distinguish between
 	- subclassing 
 2. **Implicit aggregated dependencies** (because there are other kinds of implicit dependencies we will see next time)
 
-### Aggregation can be done at multiple abstraction levels
-
-Notebook: [Basic Abstraction: Exploring aggregation levels. ](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). 
-
-Conclusion: you can not know upfront to what level to aggregate. So it is good to be able to explore various levels. 
-
-It might be that **different modules need to be explored at different levels**. From [ArchLens](https://github.com/archlens/ArchLens), a project started in the MSc thesis of two of your colleagues: 
-
-```json
-     "api-core-details": {
-        "packages": [
-            {"packagePath":"api", "depth":2},
-            {"packagePath":"core", "depth":0}
-        ],
-        "ignorePackages": ["*test*"]
-
-```
 
 
-### Different views can tell complementary stories about a system
+Interactive: [Basic Abstraction: Exploring aggregation levels. ](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). 
+
+
+
+
+
+#### Case Study: ArchLens 
 
 It might even that one needs to apply the *divide and conquer* approach to split the complexity of a system's architecture in multiple, more manageable perspectives.
 
@@ -192,7 +189,7 @@ Pros:
 2. Can be used in a MSc thesis :) (e.g. [topic1](https://github.com/mircealungu/student-projects/issues/4), [topic2](https://github.com/mircealungu/student-projects/issues/35)) 
 
 Cons:
-- Some languages don't use the folder structure the same way: C# has folders vary independent from namespaces. There you have to analyze namespaces. 
+- Some languages don't use the folder structure the same way: C# has folders vary independent from namespaces. 
 - COBOL does not have a folder structure at all. Smalltalk does not even have files. 
 
 
@@ -200,7 +197,7 @@ Cons:
 
 
 
-## Approach #2: Using Metrics 
+## Approach #2: Abstracting Module Properties Using Metrics 
 
 A software [metric](https://www.javatpoint.com/software-engineering-software-metrics) is a **measure of software characteristics** which are measurable or countable
 
@@ -214,13 +211,19 @@ Remember the def of architecture: **"[...] modules, their properties, and the re
 
 Metrics can express these *"properties"*.
 
+A few metrics can be computed directly on a given module: 
+- number of contained files
+- number of commits that involve 
 
 
-### Product metrics that can be aggregated from files to higher level abstractions 
+### Metrics that can also be aggregated from lower-level components to modules
 
-Almost anything. The only choice is: how do you aggregate? Do you sum? Do you average? It depends on the question you are asking.
+Almost all lower-level metrics can be aggregated.  
+
+The only choice is: how do you aggregate? Do you sum? Do you average? It depends on the question that one is asking.
 
 For **Files/Methods**
+
 - **Cyclomatic Complexity** ([wiki](https://en.wikipedia.org/wiki/Cyclomatic_complexity)) 
 	- number of linearly independent code paths through source code (functions of the number of branches)
 	- often used in quality: too much complexity is a bad thing
@@ -230,7 +233,7 @@ For **Modules**
 - **Size** 
 	- LOC - lines of code 
 	- NOM - number of methods
-	- ...
+
 
 For **Dependencies**
 - **Total count** of explicit low-level dependencies
@@ -241,21 +244,26 @@ The way to use metrics:
 
 
 
-
-
-### Augmenting Recovered Views with Metrics
+### Case Study: Softwarenaut 
 
 One approach would be an interactive top-down exploration approach combined with metrics is  Softwarenaut ([video](https://vimeo.com/62767181)) described in [Evolutionary and Collaborative Software Architecture Recovery with Softwarenaut,](https://core.ac.uk/download/pdf/33045731.pdf) by Lungu et al.
 
 ![500](./images/polymetric_view_of_argouml.png)
 Figure: Augmeting nodes and dependencies with metrics in ArgoUML packages.
 
+Note: you can not know upfront to what level to aggregate. So it is good to be able to explore various levels. 
 
 
 
 
 
-## Approach #3: Detecting Essentials With Network Analysis
+
+
+
+
+## Approach #3: Network Analysis
+
+This approach aims to abstract the system by extracting the most important elements in it. And the importance of the elements is given yn their graph-theoretical properties. 
 
 The `PageRank` algorithm that made Google famous tries to gauge the importance of a page in a network of pages based on the references pages make to each other. 
 
@@ -265,8 +273,6 @@ Visual intuition about PageRank ranking (Image source: [spatial-lang.org](https:
 In the paper [Ranking software artifacts](http://scg.unibe.ch/archive/papers/Peri10bRankingSoftware.pdf) Perin et al. applied the PR algorithm in order to attempt to detect the most relevant elements in a software system.
 
 *Note:* Consider trying it out in your project if you're interested in network analysis! It should not be that hard, the `networkx` package supports various methods of network analysis, e.g. [centrality](https://networkx.org/documentation/stable/reference/algorithms/centrality.html#degree), [HITS](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.hits_alg.hits.html), [pagerank](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.link_analysis.pagerank_alg.pagerank.html).
-
-*Note 2*: Maybe you want to do the inverse of the pagerank = otherwise util might become the most relevant! 
 
 
 ## Approach #4 - Automatic Clustering
@@ -289,8 +295,6 @@ Case study: Hierarchical Clustering. [Interactive Exploration of Semantic Cluste
 
 # To Think About
 
-- In which way does mapping metrics on visualizations help make sense of the data
-
 - Why are semi-automatic solutions (~*automation with human in the loop*) always required in Architecture Reconstruction?
 
 - What is the difference between the views recovered today and a hand-drawn UML diagram or something drawn on the whiteboard? 
@@ -300,6 +304,8 @@ Case study: Hierarchical Clustering. [Interactive Exploration of Semantic Cluste
 - Could we use ... LLMs?
 
 - Are there other abstractions that we didn't discuss about? What could they be? 
+
+- Using code duplication technology to *erase* all the repetitive patterns in the code; everything that is left is the architecture. 
 
 # Personalizing your Project
 
