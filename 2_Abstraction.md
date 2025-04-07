@@ -201,10 +201,11 @@ Cons:
 ## Approach #2: Abstracting Module Properties Using Metrics 
 
 ### Intermezzo - Software Metrics
+
 A software [metric](https://www.javatpoint.com/software-engineering-software-metrics) is a **measure of software characteristics** which are measurable or countable
 
 Types of metrics:
-1. **Product** - measure the resulting product, e.g. source code
+1. **Product** - measure the resulting product, e.g. source code: LOC, NOM, CYCLO of a method
 2. **Process** - measure the process, e.g. frequency of change
 
 *So how is this a complementary tool?* 
