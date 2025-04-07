@@ -297,9 +297,25 @@ Case study: Hierarchical Clustering. [Interactive Exploration of Semantic Cluste
 
 
 
-## Abstraction in your projects
 
-**Advice: Start working on your project! Don't leave it all for the last moment!** 
+## Conclusion
+### What you should be able to discuss
+
+- Why are semi-automatic solutions (~*automation with human in the loop*) always required in Architecture Reconstruction?
+
+- What is the difference between the views recovered today and a hand-drawn UML diagram or a diagram drawn on the whiteboard? 
+
+- How do you explain a recovered architectural view? Do you need to explain the role of the nodes? Should you also explain the reason for the existence of the dependencies between them? 
+
+### To Think About
+
+- Are there other abstractions that we didn't discuss? What could they be? 
+
+- Could we use ... LLMs?
+
+- Using code duplication technology to *erase* all the repetitive patterns in the code; everything that is left is the architecture. 
+
+### Abstraction in your projects
 
 - Start from the dependencies extracted last time and create an abstracted module view based on aggregating entities and relationships
 
@@ -309,18 +325,4 @@ Case study: Hierarchical Clustering. [Interactive Exploration of Semantic Cluste
 
 Note: If you spend more time implementing an analysis script or tool, you should correspondingly spend space in the report describing that. [Project Description](https://docs.google.com/document/d/10bTyUS4ZocReS3j2AxHak_-rBh_Yv_0NM6XDQrt0YkY/edit)
 
-## What you should be able to discuss
-
-- Why are semi-automatic solutions (~*automation with human in the loop*) always required in Architecture Reconstruction?
-
-- What is the difference between the views recovered today and a hand-drawn UML diagram or a diagram drawn on the whiteboard? 
-
-- How do you explain a recovered architectural view? Do you need to explain the role of the nodes? Should you also explain the reason for the existence of the dependencies between them? 
-
-## To Think About
-
-- Are there other abstractions that we didn't discuss? What could they be? 
-
-- Could we use ... LLMs?
-
-- Using code duplication technology to *erase* all the repetitive patterns in the code; everything that is left is the architecture. 
+**Advice: Start working on your project! Don't leave it all for the last moment!** 
