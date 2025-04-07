@@ -39,7 +39,7 @@ Interactive: [Basic Abstraction: Alternative layouts with networkx](https://netw
 **Lesson**: *Advanced graph layouts can  be useful when looking at graphs but their benefits are limited; a layout can do much with a graph that is too dense and too large*. 
 
 
-### Simplification is not sufficient
+### Limitations of simplification
 
 The above two methods can help but a little bit. 
 
@@ -52,9 +52,9 @@ The solution is *abstraction*.
 
 [Symphony...](./papers/deursen-symphony.pdf), when talking about knowledge inference (Sec. 6.2) mentions: 
 
-*"The reconstructor creates the target view by ...*
-- **condensing the low-level details ** of the source view, and 
-- **abstracting them** into architectural information.
+> "The reconstructor creates the target view by ...
+> - **condensing the low-level details** of the source view, and 
+> - **abstracting them** into architectural information"
 
 
 ![600](images/symphony.png)
@@ -150,14 +150,14 @@ Figure shows that we can distinguish between
 
 
 Interactive: [Basic Abstraction: Exploring aggregation levels. ](https://colab.research.google.com/drive/1ohvPB_SZeDa5NblzxLAkwmTY8JZRBZe_?usp=sharing). 
-
-
-
+- it is not clear what is the right abstraction level (e.g. depth 3? depth 2? some modules depth 1 and some depth 2)
 
 
 #### Case Study: ArchLens 
 
-It might even that one needs to apply the *divide and conquer* approach to split the complexity of a system's architecture in multiple, more manageable perspectives.
+For complex systems one needs to apply the *divide and conquer* approach to split the complexity of a system's architecture in multiple, more manageable perspectives.
+
+One tool that does this is Archlens. 
 
 ```json
     "views": {
@@ -182,7 +182,8 @@ It might even that one needs to apply the *divide and conquer* approach to split
 
 ![](images/api-core-view-with-archlens.png)
 
-### Pros and Cons of Folder-Based Aggregation
+Note: If you can not program, consider trying [ArchLens](https://github.com/archlens/ArchLens) or a similar tool. In this case, given that you're not programming you'll have to spend more time explaining the recovered view. 
+#### Pros and Cons of Folder-Based Aggregation
 
 Pros: 
 1. Works for many languages & systems
@@ -199,6 +200,7 @@ Cons:
 
 ## Approach #2: Abstracting Module Properties Using Metrics 
 
+### Intermezzo - Software Metrics
 A software [metric](https://www.javatpoint.com/software-engineering-software-metrics) is a **measure of software characteristics** which are measurable or countable
 
 Types of metrics:
@@ -293,38 +295,32 @@ Case study: Hierarchical Clustering. [Interactive Exploration of Semantic Cluste
 
 
 
-# To Think About
 
-- Why are semi-automatic solutions (~*automation with human in the loop*) always required in Architecture Reconstruction?
 
-- What is the difference between the views recovered today and a hand-drawn UML diagram or something drawn on the whiteboard? 
-
-- How do you explain a recovered architectural view? Do you need to explain the role of the nodes? Should you also explain the reason for the existence of the dependencies between them? 
-
-- Could we use ... LLMs?
-
-- Are there other abstractions that we didn't discuss about? What could they be? 
-
-- Using code duplication technology to *erase* all the repetitive patterns in the code; everything that is left is the architecture. 
-
-# Personalizing your Project
-
-- Can you visualize also dependency metrics with networkx? E.g. a stronger dependency as a thicker arrow as in the Softwarenaut examples?
-
-- For the aestheticians: consider using `pyvis` instead of `networkx` -- it has much nicer visualizations!
-
-- Consider [exporting the data from networkx](https://networkx.github.io/documentation/stable/reference/drawing.html) into specialized graph visualization tools (e.g. cytoscape, etc.)
-
-- Compute size metrics, and map them on the nodes in your module view
-
-- Can you also *recommend architectural improvements*? 
-
-- Do you have access to the developers such that you can recover a reflection model viewpoint of the system?
-
-- Can you get [ArchLens](https://github.com/archlens/ArchLens), to work? Would that be a good tool for generating views? 
+## Abstraction in your projects
 
 **Advice: Start working on your project! Don't leave it all for the last moment!** 
 
-Reminder: If you spend more time implementing an analysis script or tool, you should correspondingly spend space in the report describing that. [Project Description](https://docs.google.com/document/d/10bTyUS4ZocReS3j2AxHak_-rBh_Yv_0NM6XDQrt0YkY/edit)
+- Start from the dependencies extracted last time and create an abstracted module view. 
 
+- Consider creating multiple complementary views if one is still too overwhelming. 
 
+- Do you have access to the developers such that you can recover a reflection model viewpoint of the system? There would be extra points if you did this
+
+Note: If you spend more time implementing an analysis script or tool, you should correspondingly spend space in the report describing that. [Project Description](https://docs.google.com/document/d/10bTyUS4ZocReS3j2AxHak_-rBh_Yv_0NM6XDQrt0YkY/edit)
+
+## What you should be able to discuss
+
+- Why are semi-automatic solutions (~*automation with human in the loop*) always required in Architecture Reconstruction?
+
+- What is the difference between the views recovered today and a hand-drawn UML diagram or a diagram drawn on the whiteboard? 
+
+- How do you explain a recovered architectural view? Do you need to explain the role of the nodes? Should you also explain the reason for the existence of the dependencies between them? 
+
+## To Think About
+
+- Are there other abstractions that we didn't discuss? What could they be? 
+
+- Could we use ... LLMs?
+
+- Using code duplication technology to *erase* all the repetitive patterns in the code; everything that is left is the architecture. 
