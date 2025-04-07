@@ -301,9 +301,9 @@ Case study: Hierarchical Clustering. [Interactive Exploration of Semantic Cluste
 
 **Advice: Start working on your project! Don't leave it all for the last moment!** 
 
-- Start from the dependencies extracted last time and create an abstracted module view. 
+- Start from the dependencies extracted last time and create an abstracted module view based on aggregating entities and relationships
 
-- Consider creating multiple complementary views if one is still too overwhelming. 
+- Consider creating multiple complementary abstracted views if one is still too overwhelming. Or filtering. 
 
 - Do you have access to the developers such that you can recover a reflection model viewpoint of the system? There would be extra points if you did this
 

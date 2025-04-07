@@ -158,8 +158,6 @@ However, the information in the git log could be useful for architecture recover
 
 ## Churn: highlighting the parts of the system are most changed over time
 
-> *"The value of anything is proportional to integral over time of quality that you invest in it."* (M. Lungu)
-
 
  Churn = a metric that indicates how often a given piece of code—e.g., a file, a class, a function—gets edited. 
  
