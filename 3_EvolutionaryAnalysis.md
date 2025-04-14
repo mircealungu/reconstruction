@@ -21,29 +21,18 @@ Mircea Lungu (mlun@itu.dk)
 > 
 > -- M. Lehman, *The Law of Continuing Change*
 
-
+## E-Type Systems
 In the terminology of Lehman, the "e" in *e-type* stands for *embedded* in the real world. Since the world changes, the system must change too.
 
-There are actually two parts of the "world" where changes can impact a given software system. The context of use and the technical context. 
+There are actually two parts of the "world" where changes can impact a given software system. The human context of use and the technical context. 
 
 
-## The *Context of Use*
+### The Human Context
 
-To think about: 
-
-- *Do you have good examples of systems that had to change because the real world changed around them?* 
+To think about: *Do you have good examples of systems that had to change because the real world changed around them?* 
 
 
-
-
-
-
-
-
-
-
-
-Some examples: 
+##### Examples?
 - the software that computes taxes in Denmark
 - all the websites in Europe once GDPR came into being
 - etc. 
@@ -54,29 +43,31 @@ Some examples:
 
 
 
-## The Technical Context
+### The Technical Context
 
 Think about the `npm` ecosystem. Every day you can execute `npm audit` in your React-based web application to find out that a dozen of the packages you depend on have new versions. Do you upgrade? Do you stay like this for a while? What's the best strategy for managing this portfolio of dependencies?
 
 But this is not only about the `npm` ecosystem. The same situations emerges when a developer builds a system on top of other libraries, and even programming languages change. If one is not keeping up with the evolution of their programming language, their code will sooner or later stop working. How could this be? Some of the libraries their code depends on, might have dropped support for that version of the language. So they either upgrade, or they are left behind. If a developer des not want to be left behind, they have to keep up with all their upstream dependencies. 
 
-Developing software is a little bit like living in Wonderland where the Red Queen is telling Alice: "*In this place you have to run to stay in one place*". 
+Developing software is a little bit like living in Wonderland where the Red Queen is telling Alice: 
+
+> "*In this place you have to run to stay in one place*". 
 
 
 
-## There exist also non-e-type systems, but they are not as interesting
+## Non-e-type systems
 
 To think about: *What other kinds of systems are there then? Can you think about another type?* *Are there programs that are not impacted by the change in the world around them?* 
 
-Examples of such systems
-	- a chess engine
-	- a red-black tree balancing algorthm
-	- ... 
+#### Examples?
+- a chess engine
+- a red-black tree balancing algorithm
+- ... 
 
 
 
 
-It seems that one could even argue that this is the difference between algorithms and software systems: algorithms don't have to change with the world, while systems have to. 
+It seems that one could even argue that this is the difference between algorithms and software systems: algorithms don't have to change with the world, while software systems have to. 
 
 # Software Evolution
 
@@ -159,12 +150,15 @@ However, the information in the git log could be useful for architecture recover
 ## Churn: highlighting the parts of the system are most changed over time
 
 
- Churn = a metric that indicates how often a given piece of code—e.g., a file, a class, a function—gets edited. 
- 
+ ### Churn is a metric that indicates how often a given piece of code gets edited. 
+
  - process metric (*as opposed to? do you remember the alternate concept? *)
  - can be detected with **language independent analysis** (which is good for polyglot systems)
+ - can be applied to all kinds of code —e.g., a file, a class, a function—
+ 
 
-**Why** would places in the system with high-code churn be **relevant**? 
+
+**Why** would places in the system with **high-code churn** be relevant? 
 - are likely to be most important parts of the code
 - studies observe correlation between [*code churn*](https://linearb.io/blog/what-is-code-churn/) and complexity metrics
 - high *code churn* predicts bugs better than size 
@@ -179,7 +173,7 @@ Notebook: [Abstracting Churn Along the Module Hierarchy in Python](https://colab
 
 **Keep in mind** when using churn in architecture recovery
 
-1. Caveat: one must take into account developer styles, e.g. the micro-commits developer vs. the large chunk committer
+1. Caveat: **one must take into account developer styles**, e.g. the micro-commits developer vs. the large chunk committer
 	- you could use LOC instead of # number of commits;
 	- what could the problems with this be? 
 2. Removing irrelevant files that change frequently (`README.md`, or `LICENSE.md`)
@@ -212,13 +206,6 @@ npx -y git-truck-beta@latest
 Why is the tool defined this way? Because of the **truck factor**: "*the number of people on your team that have to be hit by a truck (or quit) before the project is in serious trouble*". [*A Novel Approach for Estimating Truck Factors*](https://arxiv.org/pdf/1604.06766.pdf), by Avelino et al. discusses some of the challenges of formally defining the concept. 
 
 
-#### Looking for volunteers: Thomas HK is looking for companies to get feedback on the new time-selection feature in Git-Truck 
-
-To try the feature try: 
-
-```
-npx -y git-truck@duck
-```
 
 
 
@@ -227,15 +214,17 @@ npx -y git-truck@duck
 
 Consider adding an evolutionary analysis component to your project. 
 - churn metrics
-- dead-code detection?
-- developer-collaboration analysis
+- code-ownership analysis
 
 
 
 # To Think About 
 
+[https://gitdiagram.com/](https://gitdiagram.com/) -- stupid idea. But popular. But still stupid. Could you make it smarter with the knowledge in this course? 
+
 What if you could replay the history of a system from the beginning but only showing those files that made it to the end. So project the beginnings through the perspective of the endings. Would that be a useful way of focusing on the most relevant aspects of the system? 
 
+	
 # References
 
 [Detection of Logical Coupling Based on Product Release History](https://plg.uwaterloo.ca/~migod/846/papers/gall-coupling.pdf), by  Harald Gall, Karin Hajek, and Mehdi Jazayeri. 
